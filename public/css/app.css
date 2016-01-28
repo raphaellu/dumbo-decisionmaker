@@ -1,9 +1,19 @@
 .questionContainer {
 	/*max-height: 60%;*/
- 	margin-top: 50px;
+ 	position: relative;
+ 	top:100px;
+
 }
 
 .indexQuestion {
+	/*margin-top: 0px;*/
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.indexQuestion img{
 	/*margin: 30px;*/
 	/*margin-bottom: 50px;*/
+	padding-right:0;
+	padding-left:0;
 }

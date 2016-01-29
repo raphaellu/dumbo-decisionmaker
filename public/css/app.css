@@ -1,13 +1,20 @@
-.questionContainer {
+#indexContent {
 	/*max-height: 60%;*/
  	position: relative;
- 	top:100px;
+ 	top:70px;
+}
+
+#questionContainer {
+	/*padding-bottom:50px;*/
+	padding-top: 30px;
+	max-height:300px;
+	overflow-y: scroll;
 }
 
 .indexQuestion {
 	/*margin-top: 0px;*/
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 0px;
+	padding-bottom: 70px;
 }
 
 .indexQuestion img{
@@ -15,4 +22,15 @@
 	/*margin-bottom: 50px;*/
 	padding-right:0;
 	padding-left:0;
+	max-width: 50px;
+}
+
+#askAnswerContainer a {
+	margin:5%;
+	width: 40%;
+}
+
+#myQuestionTitle {
+	text-align: center;
+	padding-bottom: 30px;
 }

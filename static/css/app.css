@@ -1,14 +1,19 @@
+
+
 #indexContent {
 	/*max-height: 60%;*/
  	position: relative;
- 	top:70px;
+ 	top:60px;
 }
 
 #questionContainer {
 	/*padding-bottom:50px;*/
-	padding-top: 30px;
-	max-height:300px;
+	top:80px;
+
+	max-height:470px;
 	overflow-y: scroll;
+	position: fixed;
+	background-color: #f8f8f8;
 }
 
 .indexQuestion {
@@ -25,8 +30,24 @@
 	max-width: 50px;
 }
 
+.indexQuestion .glyphicon-ok-sign {
+	font-size:18px;
+	color: #268509;
+
+}
+.indexQuestion .glyphicon-question-sign {
+	font-size:18px;
+	color: #FFB925;
+
+}
+.indexQuestion .glyphicon-remove-sign {
+	font-size:18px;
+	color: #8C1A07;
+
+}
+
 #askAnswerContainer a {
-	margin:5%;
+	margin-top: 15px;
 	width: 40%;
 }
 
@@ -34,3 +55,41 @@
 	text-align: center;
 	padding-bottom: 30px;
 }
+
+/* below is the css for footer */
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+}
+
+.navIcon {
+  color:#777;
+  font-size: 30px;
+  padding-top: 14px;
+  	-webkit-transition: ease-in-out 0.3s; /* Safari */
+    transition: ease-in-out: 0.3s;
+}
+
+.navIcon:hover {
+	color:black;
+	cursor: pointer;
+  	-webkit-transition: ease-in-out 0.3s; /* Safari */
+    transition: ease-in-out: 0.3s;
+}
+/**/

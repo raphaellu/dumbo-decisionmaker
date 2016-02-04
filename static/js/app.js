@@ -12,6 +12,8 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate'])
 	 		return "My Questions";
 	 	else if(path == "/answer")
 	 		return "Answer Questions";
+	 	else if(path == "/ask") 
+	 		return "Ask a Question";
 	 } 
 
 	
@@ -28,6 +30,9 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate'])
 		templateUrl: 'answer.html',
 		controller: 'decisionmakerCtrl'
 	})
-
+	.when('/ask', {
+		templateUrl: 'ask.html',
+		controller: 'decisionmakerCtrl'
+	})
 //	 $locationProvider.html5Mode(true);
 })

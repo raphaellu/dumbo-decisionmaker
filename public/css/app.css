@@ -16,3 +16,14 @@
 	padding-right:0;
 	padding-left:0;
 }
+
+/* for Log In header */
+h2 {
+	text-align: center;
+	color: #ffffff;
+}
+
+/* email and password */
+label {
+	color: #ffffff;
+}

@@ -60,6 +60,32 @@
 	padding-bottom: 30px;
 }
 
+/* for Log In header */
+h2 {
+	text-align: center;
+	color: #ffffff;
+}
+
+/* email and password */
+label {
+	color: #ffffff;
+=======
+	max-width: 50px;
+}
+
+#askAnswerContainer a {
+	margin:5%;
+	width: 40%;
+}
+
+#myQuestionTitle {
+	text-align: center;
+	padding-bottom: 30px;
+>>>>>>> 9fb1e3e5168647797e489d013817688c6608b01b
+}
+
+
+
 /* below is the css for footer */
 
 /* Sticky footer styles

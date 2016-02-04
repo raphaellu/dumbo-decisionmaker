@@ -1,0 +1,100 @@
+
+
+#indexContent {
+	/*max-height: 60%;*/
+ 	position: relative;
+ 	top:60px;
+}
+
+#questionContainer {
+	/*padding-bottom:50px;*/
+	top:50px;
+	padding:20px;
+	background-color: #EAEAEA;
+	height:100%;
+	width:100%;
+	overflow-y: scroll;
+	position: fixed;
+	bottom:50px
+	;
+	/*background-color: #f8f8f8;*/
+}
+
+.indexQuestion {
+	/*margin-top: 0px;*/
+	padding-top: 0px;
+	padding-bottom: 70px;
+}
+
+.indexQuestion img{
+	/*margin: 30px;*/
+	/*margin-bottom: 50px;*/
+	padding-right:0;
+	padding-left:0;
+	max-width: 50px;
+}
+
+.indexQuestion .glyphicon-ok-sign {
+	font-size:18px;
+	color: #268509;
+
+}
+.indexQuestion .glyphicon-question-sign {
+	font-size:18px;
+	color: #FFB925;
+
+}
+.indexQuestion .glyphicon-remove-sign {
+	font-size:18px;
+	color: #8C1A07;
+
+}
+
+#askAnswerContainer a {
+	margin-top: 15px;
+	width: 40%;
+}
+
+#myQuestionTitle {
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+/* below is the css for footer */
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+}
+
+.navIcon {
+  color:#777;
+  font-size: 30px;
+  padding-top: 14px;
+  	-webkit-transition: ease-in-out 0.3s; /* Safari */
+    transition: ease-in-out: 0.3s;
+}
+
+.navIcon:hover {
+	color:black;
+	cursor: pointer;
+  	-webkit-transition: ease-in-out 0.3s; /* Safari */
+    transition: ease-in-out: 0.3s;
+}
+
+/**/

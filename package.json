@@ -11,5 +11,13 @@
     "url": "https://git.ucsd.edu/l2lu/dumbo-cse170.git"
   },
   "author": "dumbo",
-  "license": "ISC"
+  "license": "ISC",
+  "main": "server.js",
+  "dependencies": {
+    "express": "3.x"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+
 }

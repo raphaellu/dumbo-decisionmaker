@@ -8,12 +8,16 @@
 
 #questionContainer {
 	/*padding-bottom:50px;*/
-	top:80px;
-
-	max-height:470px;
+	top:50px;
+	padding:20px;
+	background-color: #EAEAEA;
+	height:100%;
+	width:100%;
 	overflow-y: scroll;
 	position: fixed;
-	background-color: #f8f8f8;
+	bottom:50px
+	;
+	/*background-color: #f8f8f8;*/
 }
 
 .indexQuestion {

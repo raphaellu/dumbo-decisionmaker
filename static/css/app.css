@@ -71,7 +71,7 @@
 
 #askAnswerContainer a {
 	margin-top: 15px;
-	width: 40%;
+	min-width: 40%;
 }
 
 #myQuestionTitle {
@@ -90,10 +90,6 @@ label {
 
 	color: #ffffff;
 /*≥	max-width: 50px;*/
-}
-
-#askAnswerContainer a {
-	width: 40%;
 }
 
 #myQuestionTitle {

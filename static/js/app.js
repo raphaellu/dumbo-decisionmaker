@@ -27,19 +27,21 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate'])
 
 	 $scope.logOut = function() {
 	 	$scope.ifLoggedIn = false;
-	 	console.log("logged out");
+	 	console.log("$scope.ifLoggedIn: " + $scope.ifLoggedIn );
 	 }
 
 	 $scope.logIn = function() {
 	 	$scope.ifLoggedIn = true;
-	 	console.log("logged in");
+	 	console.log("$scope.ifLoggedIn: " + $scope.ifLoggedIn );
 	 }
 
-	 // $scope.kickUnlogged = function() {
-	 // 	if (!$scope.ifLoggedIn) {
-	 		
-	 // 	}
-	 // }
+	 $scope.kickUnlogged = function() {
+	 	if (!$scope.ifLoggedIn) {
+	 		$location.path( "/login" );
+	 	}
+	}
+
+	 // $scope.$on('$locationChangeStart', $scope.kickUnlogged());
 
 }])
 
@@ -59,6 +61,22 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate'])
 	})
 	.when('/login', {
 		templateUrl: 'login.html',
+		controller: 'decisionmakerCtrl'
+	})
+	.when('/about', {
+		templateUrl: 'about.html',
+		controller: 'decisionmakerCtrl'
+	})
+	.when('/help', {
+		templateUrl: 'help.html',
+		controller: 'decisionmakerCtrl'
+	})
+	.when('/profile', {
+		templateUrl: 'profile.html',
+		controller: 'decisionmakerCtrl'
+	})
+	.when('/singleq', {
+		templateUrl: 'singleQuestion.html',
 		controller: 'decisionmakerCtrl'
 	})
 //	 $locationProvider.html5Mode(true);

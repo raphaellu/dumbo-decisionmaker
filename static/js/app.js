@@ -6,6 +6,8 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate'])
 	 console.log('Current route name: ' + $location.path());
 	
 
+	 $scope.ifLoggedIn = false;
+
 	 $scope.determinePageTitle = function(){
 	 	var path = $location.path()
 	 	if(path == "/")
@@ -16,7 +18,28 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate'])
 	 		return "Ask a Question";
 	 } 
 
-	
+	 $scope.hideNavFooter = function(){
+	 	if ($location.path() == "/login")
+	 		return true;
+	 	else
+	 		return false;
+	 }
+
+	 $scope.logOut = function() {
+	 	$scope.ifLoggedIn = false;
+	 	console.log("logged out");
+	 }
+
+	 $scope.logIn = function() {
+	 	$scope.ifLoggedIn = true;
+	 	console.log("logged in");
+	 }
+
+	 // $scope.kickUnlogged = function() {
+	 // 	if (!$scope.ifLoggedIn) {
+	 		
+	 // 	}
+	 // }
 
 }])
 
@@ -32,6 +55,10 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate'])
 	})
 	.when('/ask', {
 		templateUrl: 'ask.html',
+		controller: 'decisionmakerCtrl'
+	})
+	.when('/login', {
+		templateUrl: 'login.html',
 		controller: 'decisionmakerCtrl'
 	})
 //	 $locationProvider.html5Mode(true);

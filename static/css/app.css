@@ -15,10 +15,29 @@
 	width:100%;
 	overflow-y: scroll;
 	position: fixed;
-	bottom:50px
-	;
+	bottom:50px;
 	/*background-color: #f8f8f8;*/
 }
+
+.loginContainer {
+
+	padding-top:70px;
+	height:100%;
+	width:100%;
+	/*overflow-y: scroll;*/
+	position: fixed;
+	/*bottom:50px;*/
+	background-color:#09091a;
+}
+/*.contentContainer {
+	top:50px;
+	padding:20px;
+	height:100%;
+	width:100%;
+	overflow-y: scroll;
+	position: fixed;
+	bottom:50px
+}*/
 
 .indexQuestion {
 	/*margin-top: 0px;*/
@@ -69,19 +88,16 @@ h2 {
 /* email and password */
 label {
 	color: #ffffff;
-=======
 	max-width: 50px;
 }
 
 #askAnswerContainer a {
-	margin:5%;
 	width: 40%;
 }
 
 #myQuestionTitle {
 	text-align: center;
 	padding-bottom: 30px;
->>>>>>> 9fb1e3e5168647797e489d013817688c6608b01b
 }
 
 

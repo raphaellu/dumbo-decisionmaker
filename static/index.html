@@ -15,7 +15,7 @@
 
 
 	<!-- nav bar -->
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-hide="hideNavFooter()">
 		<div id="navContainer" class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
@@ -35,7 +35,7 @@
 				<li><a href="#/">My Profile</a></li>
 				<li><a href="#/">About</a></li>
 				<li><a href="#/">Help</a></li>
-				<li><a href="#/">Sign Out</a></li>
+				<li><a href="#/login" ng-click="logOut()">Sign Out</a></li>
 			</ul>
 			</div>
 		</div>
@@ -50,7 +50,7 @@
 
 
 <!-- footer  -->
-<footer class="footer">
+<footer class="footer" ng-hide="hideNavFooter()">
 	<div class="container">
 		<div id="askAnswerContainer" class="buttons" >
 			

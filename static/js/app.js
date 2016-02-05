@@ -19,7 +19,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate'])
 	 } 
 
 	 $scope.hideNavFooter = function(){
-	 	if ($location.path() == "/login")
+	 	if ($location.path() == "/login" || $location.path() == "/signup")
 	 		return true;
 	 	else
 	 		return false;
@@ -63,6 +63,11 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate'])
 		templateUrl: 'login.html',
 		controller: 'decisionmakerCtrl'
 	})
+	.when('/signup', {
+		templateUrl: 'signup.html',
+		controller: 'decisionmakerCtrl'
+	})
+	
 	.when('/about', {
 		templateUrl: 'about.html',
 		controller: 'decisionmakerCtrl'
@@ -79,5 +84,6 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate'])
 		templateUrl: 'singleQuestion.html',
 		controller: 'decisionmakerCtrl'
 	})
+
 //	 $locationProvider.html5Mode(true);
 })

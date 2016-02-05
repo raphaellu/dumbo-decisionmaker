@@ -87,8 +87,9 @@ h2 {
 
 /* email and password */
 label {
+
 	color: #ffffff;
-	max-width: 50px;
+/*≥	max-width: 50px;*/
 }
 
 #askAnswerContainer a {

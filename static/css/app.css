@@ -139,4 +139,14 @@ body {
     transition: ease-in-out: 0.3s;
 }
 
+#submitButtonContainer{
+	max-width: 100%;
+	max-height: 50px;
+	justify-content: center;
+}
+
+.cancel.btn.btn-info.col-xs-4{
+	background-color: #DB0A34;
+}
+
 /**/

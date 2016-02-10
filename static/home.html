@@ -1,20 +1,16 @@
 <div id="indexContent" ng-controller="homeCtrl">
 			
-			<div id="questionContainer" class="container center-block">
-				<div ng-repeat="object in questions">
-					<div id="question1" class="indexQuestion">
-						<img class="col-xs-2 img-circle" src="./img/profile4.jpg">
-						<h class="col-xs-8">Q: {{object.question}}</h>
-						<a class="btn btn-default col-xs-2" href="#/singleq" role="button">View</a>
-					</div>
-				</div>
-		
-				<br>
-
-				
-				</div>
-
+	<div id="questionContainer" class="container center-block">
+		<div ng-repeat="object in questions">
+			<div id="question1" class="indexQuestion">
+				<img class="col-xs-2 img-circle" src="./img/profile4.jpg">
+				<h class="col-xs-8">Q: {{object.question}}</h>
+				<a class="btn btn-default col-xs-2" href="#/singleq" role="button">View</a>
 			</div>
+			<br>
+		</div>		
+	</div>
+
+</div>
 
 			
-		</div>

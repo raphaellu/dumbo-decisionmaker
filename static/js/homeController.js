@@ -27,7 +27,9 @@ angular.module('homeController', ['ngRoute', 'ngAnimate'])
 				'question': "Should I take CSE 127 or CSE 131 next quarter?",
 				'options' : ["CSE 127", "CSE 131"]
 			}
-	];		
+	];	
+
+	$scope.check = true;	
 	 
 
 }])

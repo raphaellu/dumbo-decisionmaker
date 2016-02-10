@@ -1,4 +1,4 @@
-angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'answerController'])
+angular.module('decisionmaker', ['ngRoute', 'ngAnimate'])
 
 .controller('decisionmakerCtrl', ['$scope', '$route', '$routeParams',
 	'$location', function($scope, $route, $routeParams, $location) {
@@ -53,7 +53,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'answerController'])
 	})
 	.when('/answer', {
 		templateUrl: 'answer.html',
-		controller: 'answerCtrl'
+		controller: 'decisionmakerCtrl'
 	})
 	.when('/ask', {
 		templateUrl: 'ask.html',

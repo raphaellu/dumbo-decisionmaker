@@ -1,4 +1,4 @@
-angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController'])
+angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askController', 'ngMaterial'])
 
 .controller('decisionmakerCtrl', ['$scope', '$route', '$routeParams',
 	'$location', function($scope, $route, $routeParams, $location) {

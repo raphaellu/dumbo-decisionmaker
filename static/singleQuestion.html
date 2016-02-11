@@ -1,36 +1,20 @@
-<!--h3 style="margin-top: 70px">This page shows a single question and comments on that question from users. Under construction...</h3-->
-<!--div id="indexContent" ng-controller="singleQuestionCtrl">
-	<div id="singleQuestionContainer" class="container">
-		<div ng-repeat="object in questions">
-			<img class="col-xs-2 img-circle" src="{{object.userImage}}">
 
-			<strong><h1>{{object.question}}</h1></strong>
-		
-			<br><br>
-
-				<strong><h3>{{object.options}}</h3></strong>
-			<div class="progress">
-		    	<div class="progress-bar" aria-valuenow="70" style="width:70%">70%</div>
-		  	</div>
-
-			<strong><h3>Iceland</h3></strong>
-			<div class="progress">
-		    	<div class="progress-bar" aria-valuenow="70" style="width:30%">30%</div>
-		  	</div>
-		 </div>
-	</div>
-</div-->
-<div id="singleQuestionContainer" class="container">
+<div id="singleQuestionContainer" class="container" ng-controller="singleQCtrl">
 			<img class="col-xs-2 img-circle" src="./img/profile4.jpg">
 
-			<strong><h1>Q: Should I travel to Singapore or Iceland during the summer?</h1></strong>
+			<strong><h1>{{question.question}}</h1></strong>
 		
 			<br><br>
 
-				<strong><h3>Singapore</h3></strong>
+			<div>
+			</div>
+
+			<strong><h3>Singapore</h3></strong>
 			<div class="progress">
 		    	<div class="progress-bar" aria-valuenow="70" style="width:70%">70%</div>
 		  	</div>
+
+
 
 			<strong><h3>Iceland</h3></strong>
 			<div class="progress">

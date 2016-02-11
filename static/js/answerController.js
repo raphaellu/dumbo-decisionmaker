@@ -1,39 +1,23 @@
 angular.module('answerController', ['ngRoute', 'ngAnimate'])
 
-.controller('answerCtrl', ['$scope', '$location', function($scope, $location) {
+.controller('answerCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
 		
 	console.log('Current route name: ' + $location.path());
 	
-	$scope.answerQuestions = [
-		
-		{
-			"userImage": "./img/profile1.jpg",
-			"question": "What are the best programming languages to learn today?",
-			"status": "unanswered",
-			"button": "Help"
-		},
 
-		{
-			"userImage": "./img/profile2.jpg",
-			"question": "Should I travel to Singapore or Iceland during the summer?",
-			"status": "unanswered",
-			"button": "Help"
-		},
+	// read json file
+	$http.get('../json/allQuestions.json').then(function(res){
+       $scope.allQuestions = res.data;     
 
-		{
-			"userImage": "./img/profile3.jpg",
-			"question": "Should I go to UC San Diego or UC Davis to study Computer Science?",
-			"status": "answered",
-			"button": "View"
-		},
+       // get questions only asked by other users. will do the logic in SQL in the future
+       $scope.answerQuestions = [];
+       for(var i = 0; i < $scope.allQuestions.length; i++) {
+	     if ($scope.allQuestions[i].user != "raph") 
+	        $scope.answerQuestions.push($scope.allQuestions[i]);
+	   }
+    });
 
-		{
-			"userImage": "./img/profile4.jpg",
-			"question": "Should I eat at In-N-Out or Wendy's?",
-			"status": "closed",
-			"button": "View"
-		}
-	];
+	
 
 	// for icon specifying the status of the question
 	$scope.iconChanger = function(status){

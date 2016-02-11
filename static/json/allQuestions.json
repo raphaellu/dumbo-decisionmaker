@@ -1,0 +1,67 @@
+[
+		
+		{
+			"id": 1,
+			"userImage": "./img/profile1.jpg",
+			"question": "What are the best programming languages to learn today?",
+			"status": "unanswered",
+			"button": "Help",
+			"options": ["Ruby", "Python", "C", "Ocaml"],
+			"votes": ["20%", "30%", "50%", "0%"],
+			"user": "bob" 
+
+		},
+
+		{
+			"id": 2,
+			"userImage": "./img/profile2.jpg",
+			"question": "Should I travel to Singapore or Iceland during the summer?",
+			"status": "unanswered",
+			"button": "Help",
+			"options" : ["Singapore", "Iceland"],
+			"votes": ["70%", "30%"],
+			"user": "roy"
+		},
+
+		{
+			"id": 3,
+			"userImage": "./img/profile3.jpg",
+			"question": "Should I go to UC San Diego or UC Davis to study Computer Science?",
+			"status": "answered",
+			"button": "View",
+			"options" : ["UC San Diego", "UC Davis"],
+			"votes": ["100%", "0%"],
+			"user": "simon"
+		},
+
+		{
+			"id": 4,
+			"userImage": "./img/profile4.jpg",
+			"question": "Should I eat at In-N-Out or Wendy's?",
+			"status": "closed",
+			"button": "View",
+			"options" : ["In-N-Out", "Wendy's"],
+			"votes": ["60%", "40%"],
+			"user": "jely"
+		},
+		{
+			"id": 5,
+			"userImage": "./img/profile4.jpg",
+			"question": "Simpson's or South Park?",
+			"status": "unanswered",
+			"button": "Help",
+			"options" : ["Simpson's", "South Park"],
+			"votes": ["62%", "38%"],
+			"user": "raph"
+		},
+		{
+			"id": 6,
+			"userImage": "./img/profile4.jpg",
+			"question": "Should I take CSE 127 or CSE 131 next quarter?",
+			"status": "answered",
+			"button": "View",
+			"options" : ["CSE 127", "CSE 131"],
+			"votes": ["52%", "48%"],
+			"user": "raph"
+		}
+	]

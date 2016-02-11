@@ -1,4 +1,4 @@
-angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'answerController'])
+angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'answerController', 'singleQController'])
 
 .controller('decisionmakerCtrl', ['$scope', '$route', '$routeParams',
 	'$location', function($scope, $route, $routeParams, $location) {
@@ -19,7 +19,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'answ
 	 	else if(path == "/help")
 	 		return "Help"
 	 	else if(path == "/profile")
-	 		return "Profile"
+	 		return "My Profile"
 	 } 
 
 	 $scope.hideNavFooter = function(){
@@ -94,7 +94,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'answ
 		templateUrl: 'profile.html',
 		controller: 'decisionmakerCtrl'
 	})
-	.when('/singleq', {
+	.when('/questions/:questionId', {
 		templateUrl: 'singleQuestion.html',
 		controller: 'decisionmakerCtrl'
 	})

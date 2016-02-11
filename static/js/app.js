@@ -13,9 +13,13 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'answ
 	 	if(path == "/")
 	 		return "My Questions";
 	 	else if(path == "/answer")
-	 		return "Answer Questions";
+	 		return "All Questions";
 	 	else if(path == "/ask") 
 	 		return "Ask a Question";
+	 	else if(path == "/help")
+	 		return "Help"
+	 	else if(path == "/profile")
+	 		return "Profile"
 	 } 
 
 	 $scope.hideNavFooter = function(){
@@ -40,6 +44,16 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'answ
 	 		$location.path( "/login" );
 	 	}
 	}
+
+	$scope.doTheBack = function() {
+		console.log("doback")
+  		window.history.back();
+	};
+
+	 $scope.isActive = function (viewLocation) { 
+	 	// console.log("===viewLocation: " + viewLocation + " location.path: " + $location.path());
+        return (viewLocation == $location.path());
+    };
 
 	 // $scope.$on('$locationChangeStart', $scope.kickUnlogged());
 
@@ -68,10 +82,10 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'answ
 		controller: 'decisionmakerCtrl'
 	})
 	
-	.when('/about', {
-		templateUrl: 'about.html',
-		controller: 'decisionmakerCtrl'
-	})
+	// .when('/about', {
+	// 	templateUrl: 'about.html',
+	// 	controller: 'decisionmakerCtrl'
+	// })
 	.when('/help', {
 		templateUrl: 'help.html',
 		controller: 'decisionmakerCtrl'

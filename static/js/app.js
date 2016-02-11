@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askController', 'ngMaterial'])
+=======
+angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'answerController', 'singleQController'])
+>>>>>>> 8328afbf538a7fa4ef51260475dec1c3ca65b726
 
 .controller('decisionmakerCtrl', ['$scope', '$route', '$routeParams',
 	'$location', function($scope, $route, $routeParams, $location) {
@@ -13,9 +17,13 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	 	if(path == "/")
 	 		return "My Questions";
 	 	else if(path == "/answer")
-	 		return "Answer Questions";
+	 		return "All Questions";
 	 	else if(path == "/ask") 
 	 		return "Ask a Question";
+	 	else if(path == "/help")
+	 		return "Help"
+	 	else if(path == "/profile")
+	 		return "My Profile"
 	 } 
 
 	 $scope.hideNavFooter = function(){
@@ -40,6 +48,16 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	 		$location.path( "/login" );
 	 	}
 	}
+
+	$scope.doTheBack = function() {
+		console.log("doback")
+  		window.history.back();
+	};
+
+	 $scope.isActive = function (viewLocation) { 
+	 	// console.log("===viewLocation: " + viewLocation + " location.path: " + $location.path());
+        return (viewLocation == $location.path());
+    };
 
 	 // $scope.$on('$locationChangeStart', $scope.kickUnlogged());
 
@@ -68,10 +86,10 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 		controller: 'decisionmakerCtrl'
 	})
 	
-	.when('/about', {
-		templateUrl: 'about.html',
-		controller: 'decisionmakerCtrl'
-	})
+	// .when('/about', {
+	// 	templateUrl: 'about.html',
+	// 	controller: 'decisionmakerCtrl'
+	// })
 	.when('/help', {
 		templateUrl: 'help.html',
 		controller: 'decisionmakerCtrl'
@@ -80,7 +98,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 		templateUrl: 'profile.html',
 		controller: 'decisionmakerCtrl'
 	})
-	.when('/singleq', {
+	.when('/questions/:questionId', {
 		templateUrl: 'singleQuestion.html',
 		controller: 'decisionmakerCtrl'
 	})

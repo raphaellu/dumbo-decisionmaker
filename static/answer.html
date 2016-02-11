@@ -1,38 +1,17 @@
-<div id="indexContent">
+<div id="indexContent" ng-controller="answerCtrl">
 			
-			<div id="questionContainer" class="container well center-block">
-				<div id="question1" class="indexQuestion">
-					<img class="col-xs-2 img-circle" src="./img/profile1.jpg">
-					<h class="col-xs-8"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>  Q: What are the best programming languages to learn today?</h>
-					<a class="btn btn-info col-xs-2" href="#/singleq" role="button">Help</a>
-				</div>
-						
-				<br>
-
-				<div id="question2" class="indexQuestion">
-					<img class="col-xs-2 img-circle" src="./img/profile2.jpg">
-					<h class="col-xs-8"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>  Q: Should I travel to Singapore or Iceland during the summer?</h>
-					<a class="btn btn-info col-xs-2" href="#/singleq" role="button">Help</a>
-				</div>
-
-				<br>
-		
-				<div id="question3" class="indexQuestion">
-					<img class="col-xs-2 img-circle" src="./img/profile3.jpg">
-					<h class="col-xs-8"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>  Q: Should I go to UC San Diego or UC Davis to study Computer Science?</h>
-					<a class="btn btn-success col-xs-2" href="#/singleq" role="button">View</a>
-				</div>
-
-				<br>
-
-				<div id="question4" class="indexQuestion">
-					<img class="col-xs-2 img-circle" src="./img/profile4.jpg">
-					<h class="col-xs-8"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>  Q: Should I eat at In-N-Out or Windy's?</h>
-					<a class="btn btn-default col-xs-2" href="#/singleq" role="button">View</a>
-				</div>
-
-				
-
-
+	<div id="questionContainer" class="container well center-block">
+		<div ng-repeat="object in answerQuestions">
+			<div id="question1" class="indexQuestion">
+				<img class="col-xs-2 img-circle" ng-src="{{object.userImage}}">
+				<h class="col-xs-8">
+					<span class="{{iconChanger(object.status)}}" aria-hidden="true"></span>  Q: {{object.question}}
+				</h>
+				<a class="{{buttonTypeChanger(object.status)}} col-xs-2" href="#/singleq" role="button">{{object.button}}</a>
 			</div>
+						
+		<br>
+
+		</div>
+	</div>
 </div>

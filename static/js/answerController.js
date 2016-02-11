@@ -42,5 +42,16 @@ angular.module('answerController', ['ngRoute', 'ngAnimate'])
 		} 	
 	};
 
+	$scope.buttonTextChanger = function(status){
+		switch (status) {
+			case "unanswered":
+				return "Help";
+			case "answered":
+				return "View";
+			case "closed":
+				return "View";
+		} 
+	}
+
 //	 $locationProvider.html5Mode(true);
 }])

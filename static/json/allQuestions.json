@@ -5,11 +5,13 @@
 			"userImage": "./img/profile1.jpg",
 			"question": "What are the best programming languages to learn today?",
 			"status": "unanswered",
-			"button": "Help",
-			"options": ["Ruby", "Python", "C", "Ocaml"],
-			"votes": ["20%", "30%", "50%", "0%"],
+			"options": [ 
+			 			{ "option": "Ruby", "vote":"20%" },
+			 			{ "option": "Python", "vote": "30%" },
+			 			{ "option": "C", "vote": "50%" },
+			 			{ "option": "Ocaml", "vote": "0%" }
+			 		   ],
 			"user": "bob" 
-
 		},
 
 		{
@@ -17,9 +19,10 @@
 			"userImage": "./img/profile2.jpg",
 			"question": "Should I travel to Singapore or Iceland during the summer?",
 			"status": "unanswered",
-			"button": "Help",
-			"options" : ["Singapore", "Iceland"],
-			"votes": ["70%", "30%"],
+			"options" : [ 
+						  {"option": "Singapore", "vote": "70%"},
+						  {"option": "Iceland", "vote" : "30%"}
+						],
 			"user": "roy"
 		},
 
@@ -28,9 +31,10 @@
 			"userImage": "./img/profile3.jpg",
 			"question": "Should I go to UC San Diego or UC Davis to study Computer Science?",
 			"status": "answered",
-			"button": "View",
-			"options" : ["UC San Diego", "UC Davis"],
-			"votes": ["100%", "0%"],
+			"options" : [
+						 {"option": "UC San Diego", "vote": "100%"},
+						 {"option": "UC Davis", "vote": "0%"}
+						],
 			"user": "simon"
 		},
 
@@ -39,9 +43,10 @@
 			"userImage": "./img/profile4.jpg",
 			"question": "Should I eat at In-N-Out or Wendy's?",
 			"status": "closed",
-			"button": "View",
-			"options" : ["In-N-Out", "Wendy's"],
-			"votes": ["60%", "40%"],
+			"options" : [
+			 			 { "option": "In-N-Out", "vote" : "60%" },
+			 			 { "option": "Wendy's", "vote": "40%"}
+			 			],
 			"user": "jely"
 		},
 		{
@@ -49,9 +54,10 @@
 			"userImage": "./img/profile4.jpg",
 			"question": "Simpson's or South Park?",
 			"status": "unanswered",
-			"button": "Help",
-			"options" : ["Simpson's", "South Park"],
-			"votes": ["62%", "38%"],
+			"options" : [
+						 {"option":	"Simpson's", "vote": "62%" },
+						 {"option": "South Park", "vote": "38%" }
+						],
 			"user": "raph"
 		},
 		{
@@ -59,9 +65,10 @@
 			"userImage": "./img/profile4.jpg",
 			"question": "Should I take CSE 127 or CSE 131 next quarter?",
 			"status": "answered",
-			"button": "View",
-			"options" : ["CSE 127", "CSE 131"],
-			"votes": ["52%", "48%"],
+			"options" : [
+						 { "option": "CSE 127", "vote" : "52%" },
+						 { "option": "CSE 131", "vote" : "48%" }
+						],
 			"user": "raph"
 		}
-	]
+]

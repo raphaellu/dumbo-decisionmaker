@@ -3,9 +3,9 @@
 	<div id="questionContainer" class="container center-block">
 		<div ng-repeat="object in questions">
 			<div id="question1" class="indexQuestion">
-				<img class="col-xs-2 img-circle" src="./img/profile4.jpg">
+				<img class="col-xs-2 img-circle" ng-src="{{object.userImage}}">
 				<h class="col-xs-8">Q: {{object.question}}</h>
-				<a class="btn btn-default col-xs-2" href="#/singleq" role="button">View</a>
+				<a class="btn btn-default col-xs-2" href="#/questions/{{object.id}}" role="button">View</a>
 			</div>
 			<br>
 		</div>		

@@ -95,6 +95,10 @@ h2 {
 	text-align: center;
 	color: #ffffff;
 }
+#singleQuestionContainer h2 {
+	text-align: center;
+	color: #000000;
+}
 
 /* email and password */
 label {

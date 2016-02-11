@@ -1,16 +1,15 @@
-<div id="questionForm" ng-controller="askController">
+<div id="questionForm" ng-controller="askCtrl">
 
 	<div id="askHeader">
 		<h3>Ask a Question</h3>
 	</div>
 
 	<div class="container"id="askQuestionContainer">
-		<div id="questionTypeHeader">
-			<h5>What are you trying to decide?</h5>
-		</div>
-
 		<div id="questionTypeFormContainer">
-			<textarea max-width maxlength="100"></textarea>
+			<md-input-container style="width: 100%">
+				<label>What are you trying to decide?</label>
+				<textarea md-maxlength="100" ng-maxlength="100" max-length="100" ng-model="newObj.question" style="width: 100%"required></textarea>
+			</md-input-container>
 		</div>
 		<div class="optionsContainer" >
 			<div id="optionsHeader">	<!-- Maybe have some hiding feature after options selected-->
@@ -18,21 +17,34 @@
 			</div>
 			
 			<div id="optionsButtonContaineer">
-				<div class="col-xs-4">
-					<span><input type="radio" name="optradio">   Open-ended</span>
-				</div>
-				<div class="col-xs-4">
-					<span><input type="radio" name="optradio">   Make a poll</span>
-				</div>
+				<md-radio-group ng-model="newObj.isPoll">
+					<md-radio-button ng-value="false">Open-ended</md-radio-button>
+					<md-radio-button ng-value="true" class="md-primary">Make a poll</md-radio-button>
+					<!-- <div class="col-xs-4">
+						<span><input type="radio" name="optradio">   Open-ended</span>
+					</div>
+					<div class="col-xs-4">
+						<span><input type="radio" name="optradio" value="checked">   Make a poll</span> -->
+					</div>
+				</md-radio-group>
 			</div>
-		</div>
+			<div ng-if="newObj.isPoll">
+				<md-chips
+        ng-model="newObj.options"
+        placeholder="Enter options here"
+        delete-button-label="Remove option"
+        delete-hint="Press delete to remove option"
+        secondary-placeholder="+Option"></md-chips>
+			</div>
+
+		</div>		
 		<br>
 		<br>
 		<br>
 
 		<div id="submitButtonContainer">
 			<a class="btn btn-default col-xs-4" role="button" href="#/">Cancel<a/>
-			<a class="btn btn-info col-xs-4" role="button" href="#/" style="float:right">Submit<a/>	
+			<a class="btn btn-info col-xs-4" role="button" href="#/" style="float:right" ng-click="submit()">Submit<a/>	
 		</div>
 	</div>
 </div>

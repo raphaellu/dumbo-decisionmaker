@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askController', 'ngMaterial'])
+=======
 angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'answerController', 'singleQController'])
+>>>>>>> 8328afbf538a7fa4ef51260475dec1c3ca65b726
 
 .controller('decisionmakerCtrl', ['$scope', '$route', '$routeParams',
 	'$location', function($scope, $route, $routeParams, $location) {

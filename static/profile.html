@@ -1,1 +1,33 @@
-<h1 style="margin-top: 70px">This is the user's profile page. Under construction...</h1>
+<div style="padding-top: 60px">
+	<img ng-src="{{profile.image}}" class="col-xs-2 img-circle" style="min-width:100px">
+</div>
+<br>
+<br>
+<br>
+<div md-content style="margin-top: 20px">
+	<md-list>
+		<md-list-item class="md-2-line">
+			<div class="md-list-item-text" layout="column">
+	          <h3>Name</h3>
+	          <p>{{ profile.name}}</p>
+        	</div>
+		</md-list-item>
+		<md-list-item class="md-2-line">
+			<div class="md-list-item-text" layout="column">
+	          <h3>Email</h3>
+	          <p>{{ profile.email}}</p>
+        	</div>
+		</md-list-item>
+		<md-list-item class="md-2-line">
+			<!-- <div class="md-list-item-text" layout="column">
+	          <h3>Password</h3>
+	          <div layout="row">
+	          	 <p>{{ encryptPW()}}</p>
+	          	<p style="color: blue" ng-click="editPW()">Edit</p>
+ 
+	          </div>
+        	</div> -->
+		</md-list-item>
+
+	</md-list>
+</div>

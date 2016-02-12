@@ -23,6 +23,22 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	 		return "My Profile"
 	 } 
 
+	 $scope.profile = {
+	 	"name"	: "Chirag Poolajaranadirsamad",
+	 	"image" : "./img/profile4.jpg",
+	 	"email" : "chirag@gmail.com",
+	 	"password": "petrifiedJS"
+	 	}
+
+	 $scope.encryptPW = function(){
+	 	var pw = "";
+	 	for(i in $scope.profile.password)
+	 		pw += "*";
+	 	return pw;
+	 }
+
+	 	
+
 	 $scope.hideNavFooter = function(){
 	 	if ($location.path() == "/login" || $location.path() == "/signup")
 	 		return true;

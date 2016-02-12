@@ -1,14 +1,12 @@
-<div id="questionForm" ng-controller="askCtrl">
+<div id="questionForm" ng-controller="askCtrl" class="container" style="padding-top: 80px" >
 
-	<div id="askHeader">
-		<h3>Ask a Question</h3>
-	</div>
+	
 
 	<div class="container"id="askQuestionContainer">
 		<div id="questionTypeFormContainer">
 			<md-input-container style="width: 100%">
 				<label>What are you trying to decide?</label>
-				<textarea md-maxlength="100" ng-maxlength="100" max-length="100" ng-model="newObj.question" style="width: 100%"required></textarea>
+				<textarea md-maxlength="100" ng-maxlength="100" max-length="100" ng-model="newObj.question" style="width: 100%"required></textarea> 
 			</md-input-container>
 		</div>
 		<div class="optionsContainer" >

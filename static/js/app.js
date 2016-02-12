@@ -1,13 +1,36 @@
 
 angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askController', 'answerController', 'singleQController','ngMaterial'])
+// .run(['$route', '$rootScope', '$location', function ($route, $rootScope, $location) {
+//     var original = $location.path;
+//     $location.path = function (path, reload) {
+//         if (reload === false) {
+//             var lastRoute = $route.current;
+//             var un = $rootScope.$on('$locationChangeSuccess', function () {
+//                 $route.current = lastRoute;
+//                 un();
+//             });
+//         }
+//         return original.apply($location, [path]);
+//     };
+// }])
+
+
 
 .controller('decisionmakerCtrl', ['$scope', '$route', '$routeParams',
-	'$location', function($scope, $route, $routeParams, $location) {
+	'$location', '$http',function($scope, $route, $routeParams, $location, $http) {
 		
-	 console.log('Current route name: ' + $location.path());
-	
+	 // console.log('Current route name: ' + $location.path());
+	console.log("decisionmaker ctrl")
 
 	 $scope.ifLoggedIn = false;
+	 // $scope.homeQuestions=[];
+	 $scope.answerQuestions = [];
+	 
+	 $http.get('../json/allQuestions.json').then(function(res){
+      	 $scope.allQuestions = res.data;  
+     });    
+     
+
 
 	 $scope.determinePageTitle = function(){
 	 	var path = $location.path()
@@ -63,24 +86,24 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 .config(function($routeProvider, $locationProvider){
 	$routeProvider
 	.when('/', {
-		templateUrl: 'home.html',
-		controller: 'decisionmakerCtrl'
+		templateUrl: 'home.html'
+		// controller: 'decisionmakerCtrl'
 	})
 	.when('/answer', {
-		templateUrl: 'answer.html',
-		controller: 'decisionmakerCtrl'
+		templateUrl: 'answer.html'
+		// controller: 'decisionmakerCtrl'
 	})
 	.when('/ask', {
-		templateUrl: 'ask.html',
-		controller: 'decisionmakerCtrl'
+		templateUrl: 'ask.html'
+		// controller: 'decisionmakerCtrl'
 	})
 	.when('/login', {
-		templateUrl: 'login.html',
-		controller: 'decisionmakerCtrl'
+		templateUrl: 'login.html'
+		// controller: 'decisionmakerCtrl'
 	})
 	.when('/signup', {
-		templateUrl: 'signup.html',
-		controller: 'decisionmakerCtrl'
+		templateUrl: 'signup.html'
+		// controller: 'decisionmakerCtrl'
 	})
 	
 	// .when('/about', {
@@ -88,16 +111,16 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	// 	controller: 'decisionmakerCtrl'
 	// })
 	.when('/help', {
-		templateUrl: 'help.html',
-		controller: 'decisionmakerCtrl'
+		templateUrl: 'help.html'
+		// controller: 'decisionmakerCtrl'
 	})
 	.when('/profile', {
-		templateUrl: 'profile.html',
-		controller: 'decisionmakerCtrl'
+		templateUrl: 'profile.html'
+		// controller: 'decisionmakerCtrl'
 	})
 	.when('/questions/:questionId', {
-		templateUrl: 'singleQuestion.html',
-		controller: 'decisionmakerCtrl'
+		templateUrl: 'singleQuestion.html'
+		// controller: 'decisionmakerCtrl'
 	})
 
 //	 $locationProvider.html5Mode(true);

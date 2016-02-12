@@ -2,23 +2,23 @@ angular.module('answerController', ['ngRoute', 'ngAnimate'])
 
 .controller('answerCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
 		
-	console.log('Current route name: ' + $location.path());
+	// console.log('Current route name: ' + $location.path());
 	
 
 	// read json file
-	$http.get('../json/allQuestions.json').then(function(res){
-       $scope.allQuestions = res.data;     
+	// $http.get('../json/allQuestions.json').then(function(res){
+       // $scope.allQuestions = res.data;     
 
        // get questions only asked by other users. will do the logic in SQL in the future
-       $scope.answerQuestions = [];
+       
        for(var i = 0; i < $scope.allQuestions.length; i++) {
 	     if ($scope.allQuestions[i].user != "raph") 
 	        $scope.answerQuestions.push($scope.allQuestions[i]);
 	   }
-    });
+    // });
 
 	
-
+	
 	// for icon specifying the status of the question
 	$scope.iconChanger = function(status){
 		switch (status) {

@@ -1,4 +1,4 @@
-angular.module('answerController', ['ngRoute', 'ngAnimate'])
+angular.module('answerController', ['ngRoute', 'ngAnimate','singleQController'])
 
 .controller('answerCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
 		
@@ -16,6 +16,11 @@ angular.module('answerController', ['ngRoute', 'ngAnimate'])
 	        $scope.answerQuestions.push($scope.allQuestions[i]);
 	   }
     // });
+
+	// if submitted, change status, 
+    if($scope.qSubmit){
+
+    }
 
 	
 	

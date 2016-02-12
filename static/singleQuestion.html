@@ -1,16 +1,39 @@
 
 <div id="singleQuestionContainer" class="container" ng-controller="singleQCtrl">
-			<div><img class="col-xs-2 img-circle" style="min-width:100px" ng-src="{{question.userImage}}">
-			</div>
-			<span><strong><h2>{{question.question}}</h2></strong></span>
-		
-			<br><br>
+	<div><img class="col-xs-2 img-circle" style="min-width:100px" ng-src="{{question.userImage}}">
+	</div>
+	<span><strong><h2>{{question.question}}</h2></strong></span>
 
-			<div ng-repeat="option in question.options" >
-				<strong><h4>{{option.option}}</h4></strong>
-				<div class="progress">
-		    		<div class="progress-bar" aria-valuenow="{{option.vote}}" style="width:{{option.vote}}">{{option.vote}}</div>
-		  		</div>
-			</div>
+	<br><br>
+
+	<div ng-repeat="option in question.options" ng-if="question.status == 'answered' || question.status == 'closed' || question.user == 'raph'">
+		<strong><h4>{{option.option}}</h4></strong>
+		<div class="progress">
+    		<div class="progress-bar" aria-valuenow="{{option.vote}}" style="width:{{option.vote}}">{{option.vote}}</div>
+  		</div>
+	</div>
+
+	<div ng-if="question.status == 'unanswered'">
+		<div ng-if="question.user != 'raph'">
+			<form ng-submit="submitted()" ng-controller="singleQCtrl" ng-cloak>
+				<div ng-repeat="option in question.options">
+	
+					<md-radio-group ng-bind="choiceVal">
+					<md-radio-button value="{{option.option}}">{{option.option}}</md-radio-button>
+					</md-radio-group>
+				</div>
+
+			</form>
+			<br>
+			
+			<br>
+			<!-- submit answer -->
+
+			<a class="btn btn-default col-xs-2" role="button">Submit</a>
+
+		</div>
+	</div>
+
+	
 
 </div>

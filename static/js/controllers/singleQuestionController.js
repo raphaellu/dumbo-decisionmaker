@@ -17,10 +17,10 @@ angular.module('singleQController', ['ngRoute', 'ngAnimate'])
 //	 $locationProvider.html5Mode(true);
 	$scope.qSubmit = false;
 	$scope.choiceVal;
-	$scope.submitted(){
-		if($scope.choiceVal != null){
-			$scope.qSubmit = true;
-		}
-	}
+	// $scope.submitted(){
+	// 	if($scope.choiceVal != null){
+	// 		$scope.qSubmit = true;
+	// 	}
+	// }
 }])
 //.service()

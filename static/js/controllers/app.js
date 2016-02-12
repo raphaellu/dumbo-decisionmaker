@@ -24,7 +24,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 
 	 $scope.ifLoggedIn = false;
 	 // $scope.homeQuestions=[];
-	 $scope.answerQuestions = [];
+	 // $scope.answerQuestions = [];
 	 
 	 $http.get('../json/allQuestions.json').then(function(res){
       	 $scope.allQuestions = res.data;  

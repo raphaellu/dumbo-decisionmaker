@@ -10,7 +10,7 @@ angular.module('answerController', ['ngRoute', 'ngAnimate','singleQController'])
        // $scope.allQuestions = res.data;     
 
        // get questions only asked by other users. will do the logic in SQL in the future
-       
+      $scope.answerQuestions = [];
        for(var i = 0; i < $scope.allQuestions.length; i++) {
 	     if ($scope.allQuestions[i].user != "raph") 
 	        $scope.answerQuestions.push($scope.allQuestions[i]);

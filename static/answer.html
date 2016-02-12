@@ -1,7 +1,7 @@
 <div id="indexContent" ng-controller="answerCtrl">
 			
 	<div id="questionContainer" class="container well center-block">
-		<div ng-repeat="object in answerQuestions">
+		<div ng-repeat="object in answerQuestions track by $index">
 			<div id="question1" class="indexQuestion">
 				<img class="col-xs-2 img-circle" ng-src="{{object.userImage}}">
 				<h class="col-xs-8">

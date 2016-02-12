@@ -4,7 +4,7 @@ angular.module('askController', ['ngRoute', 'ngAnimate', 'ngMaterial'])
 		
 	 $scope.newObj = {
 	 	'question': "I need a companion! Should I get a cat or a dog to keep me company?",
-	 	'isPoll': true,
+	 	// 'isPoll': true,
 	 	'options': ["cat","dog"]
 	 }
 

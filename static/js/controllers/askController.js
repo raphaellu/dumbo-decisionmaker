@@ -5,7 +5,7 @@ angular.module('askController', ['ngRoute', 'ngAnimate', 'ngMaterial', 'ngMessag
 	 $scope.newObj = {
 	 	'question': "",
 	 	// 'isPoll': true,
-	 	'options': ["cat","dog"]
+	 	'options': []
 	 }
 
 	
@@ -32,7 +32,7 @@ angular.module('askController', ['ngRoute', 'ngAnimate', 'ngMaterial', 'ngMessag
 
 	 	$scope.newObj.question = "";
 	 	$scope.newObj.options = [];
-	 	$location.path("/");
+	 	$location.path("/home");
 	
 	 }
 

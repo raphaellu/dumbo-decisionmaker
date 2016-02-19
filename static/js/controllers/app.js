@@ -50,6 +50,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	 	// else if(String(path).includes("/questions/"))
 	 		// return ""
 	 } 
+	 
 
 	 $scope.user = [{
 	 	"name"	: "Super User",
@@ -96,7 +97,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	 	$scope.ifLoggedIn = true;
 	 	console.log("$scope.ifLoggedIn: " + $scope.ifLoggedIn );
 	 	// check to see that there's an email/password that match against array
-	 	
+	 	$location.path("/");
 	 	for(var i = 0; i < $scope.user.length; i++) {
 	    	if ($scope.user[i].email == $scope.loginuser.email && $scope.user[i].password == $scope.loginuser.password) {
 	    		$scope.goodUser = true;
@@ -109,7 +110,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	    		$scope.loginuser.password = "";
 	    		return;
 	    	}
-	    	$location.path("/");
+	    	
 
 	     }
 	 }

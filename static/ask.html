@@ -6,15 +6,6 @@
 					<label>What are you trying to decide?</label>
 					<textarea name="question" maxlength="300" md-maxlength="300" ng-maxlength="300" ng-model="newObj.question" style="width: 100%" required minlength="5" ng-minlength="5"></textarea> 
 					<div ng-messages="askQuestionForm.question.$error" ng-if="askQuestionForm.question.$dirty">
-						<!-- <div ng-message="required" ng-show="question.$touched || question.$dirty">
-							You forgot to write your question!
-						</div>
-						<div ng-message="minlength" ng-show="question.$touched || question.$dirty">
-							Your question seems too short...
-						</div>
-						<div ng-message="maxlength" ng-show="question.$touched || question.$dirty">
-							You might want to cut down. Most friends don't like reading essays!
-						</div> -->
 						<div ng-message="required">
 							You forgot to write your question!
 						</div>
@@ -36,13 +27,13 @@
 				<div >
 					<md-chips 
 	        ng-model="newObj.options"
-	        placeholder="Enter options here"
+	        placeholder="Type options and Enter"
 	        delete-button-label="Remove option"
 	        delete-hint="Press delete to remove option"
-	        secondary-placeholder="+Option"></md-chips>
-	        		<div>
+	        secondary-placeholder="+Option and Enter"></md-chips>
+	        		<div ng-if="newObj.options.length<2">
+	        			<span style="color: #ff0000">Enter at least 2 options</span>
 				</div>
-
 			</div>		
 			<br>
 			<br>
@@ -51,9 +42,8 @@
 			<div id="submitButtonContainer">
 				<a class="btn btn-default col-xs-4" role="button" href="#/">Cancel<a/>
 				<input class="btn btn-info col-xs-4" role="button" style="float:right" ng-click="submit()" ng-disabled="(Object.keys(askQuestionForm.question.$error).length >0) || (newObj.options.length<2)" value="submit"><a/>	
-				{{newObj.options.length}} {{askQuestionForm.question.$error }}
-
 			</div>
+
 		</div>
 	</form>
 </div>

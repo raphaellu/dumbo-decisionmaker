@@ -7,7 +7,8 @@ angular.module('profileController', ['ngRoute', 'ngAnimate'])
 		$scope.updateData = function() {
 			$scope.user[0].name = "Jelly";
 			$scope.user[0].password = "boba";
-			$scope.user[0].image = "./img/profile2.jpg";
+			// $scope.user[0].image = "./img/profile2.jpg";
+			$scope.profileUpdated = true;
 		};
 
 

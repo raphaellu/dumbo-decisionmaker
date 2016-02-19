@@ -43,18 +43,12 @@
 	        	</div>
 			</md-list-item>
 
-			<md-list-item class="md-2-line">
-				<!-- <div class="md-list-item-text" layout="column">
-		          <h3>Password</h3>
-		          <div layout="row">
-		          	 <p>{{ encryptPW()}}</p>
-		          	<p style="color: blue" ng-click="editPW()">Edit</p>
-	 
-		          </div>
-	        	</div> -->
-			</md-list-item>
-
 		</md-list>
 		<a href="#/profile" class="btn btn-default" role="button" ng-click="updateData()">Update</a>
+
+		<div ng-if="profileUpdated">
+		<span style="color: #ff0000"> Your profile has been updated. </span>
+		</div>
+
 	</div>
 </div>

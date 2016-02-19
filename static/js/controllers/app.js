@@ -30,9 +30,9 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
       	 $scope.allQuestions = res.data;  
      });
      
-     $http.get('../json/users.json').then(function(res){
-      	 $scope.allUsers = res.data;  
-     });    
+     // $http.get('../json/users.json').then(function(res){
+     //  	 $scope.user = res.data;  
+     // });    
      
 
 	 $scope.determinePageTitle = function(){
@@ -52,11 +52,19 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	 } 
 
 	 $scope.user = [{
+	 	"name"	: "Super User",
+	 	"image" : "./img/profile4.jpg",
+	 	"email" : "superuser@ucsd.edu",
+	 	"password": "superuser"
+	 },
+	 {
 	 	"name"	: "Chirag Poolajaranadirsamad",
 	 	"image" : "./img/profile4.jpg",
 	 	"email" : "chirag@gmail.com",
 	 	"password": "petrifiedJS"
 	 }]
+
+
 	 $scope.loginuser = {
 	 	"email" : "",
 	 	"password" : ""

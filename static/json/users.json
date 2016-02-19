@@ -1,0 +1,18 @@
+[
+	{
+		"name"	: "Chirag Poolajaranadirsamad",
+	 	"image" : "./img/profile4.jpg",
+	 	"email" : "chirag@gmail.com",
+	 	"password": "petrifiedJS",
+	 	"id": 1 
+	},
+
+	{
+		"name"	: "Pooh Bear",
+	 	"image" : "./img/profile2.jpg",
+	 	"email" : "poohbear@gmail.com",
+	 	"password": "hunny",
+	 	"id": 2
+	}
+
+]

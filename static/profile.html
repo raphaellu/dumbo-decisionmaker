@@ -1,35 +1,60 @@
 
-<div style="padding-top: 60px">
-	<img ng-src="{{profile.image}}" class="col-xs-2 img-circle" style="min-width:100px">
-</div>
-<br>
-<br>
-<br>
-<div md-content style="margin-top: 20px">
-	<md-list>
-		<md-list-item class="md-2-line">
-			<div class="md-list-item-text" layout="column">
-	          <h3>Name</h3>
-	          <p>{{ profile.name}}</p>
-        	</div>
-		</md-list-item>
-		<md-list-item class="md-2-line">
-			<div class="md-list-item-text" layout="column">
-	          <h3>Email</h3>
-	          <p>{{ profile.email}}</p>
-        	</div>
-		</md-list-item>
-		<md-list-item class="md-2-line">
-			<!-- <div class="md-list-item-text" layout="column">
-	          <h3>Password</h3>
-	          <div layout="row">
-	          	 <p>{{ encryptPW()}}</p>
-	          	<p style="color: blue" ng-click="editPW()">Edit</p>
- 
-	          </div>
-        	</div> -->
-		</md-list-item>
+<div class="container" ng-controller="profileCtrl">
 
-	</md-list>
-</div>
+	<div style="padding-top: 60px">
+		<img ng-src="{{user[0].image}}" class="col-xs-2 img-circle" style="min-width:150px">
+	</div>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
+	<div md-content style="margin-top: 20px">
+		<md-list>
+
+			<md-list-item class="md-2-line">
+				<div class="md-list-item-text" layout="column">
+		          <h3>Name</h3>
+		          <p><input type="text" name="name" value="{{user[0].name}}" style="width: 300px"></p>
+	        	</div>
+			</md-list-item>
+
+			<md-list-item class="md-2-line">
+				<div class="md-list-item-text" layout="column">
+		          <h3>Email</h3>
+		          <p><input type="text" name="email" value="{{user[0].email}}" style="width: 300px" disabled></p>
+	        	</div>
+			</md-list-item>
+
+			<md-list-item class="md-2-line">
+				<div class="md-list-item-text" layout="column">
+		          <h3>Password</h3>
+		          <p><input type="password" name="pwd" value="" style="width: 300px"></p>
+	        	</div>
+			</md-list-item>
+
+			<md-list-item class="md-2-line">
+				<div class="md-list-item-text" layout="column">
+		          <h3>Confirm Password</h3>
+		          <p><input type="password" name="pwd" value="" style="width: 300px"></p>
+	        	</div>
+			</md-list-item>
+
+			<md-list-item class="md-2-line">
+				<!-- <div class="md-list-item-text" layout="column">
+		          <h3>Password</h3>
+		          <div layout="row">
+		          	 <p>{{ encryptPW()}}</p>
+		          	<p style="color: blue" ng-click="editPW()">Edit</p>
+	 
+		          </div>
+	        	</div> -->
+			</md-list-item>
+
+		</md-list>
+		<a href="#/profile" class="btn btn-default" role="button" ng-click="updateData()">Update</a>
+	</div>
+</div>

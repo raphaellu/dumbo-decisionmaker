@@ -15,6 +15,28 @@ angular.module('homeController', ['ngRoute', 'ngAnimate'])
        	if ($scope.allQuestions[i].user == "raph") 
        		$scope.homeQuestions.push($scope.allQuestions[i]);
        }
+
+
+        $scope.logIn = function(){
+    for(var i = 0; i < $scope.user.length; i++) {
+        if ($scope.user[i].email == $scope.loginuser.email && $scope.user[i].password == $scope.loginuser.password) {
+          $scope.goodUser = true;
+          $scope.loginuser.name = $scope.user[i].name;
+          $scope.loginuser.email = $scope.user[i].email;
+          $scope.loginuser.password = $scope.user[i].password;
+          console.log("found the user!" +JSON.stringify($scope.loginuser))
+        }
+        // console.log("goodUser: " + $scope.goodUser);
+      }
+        if(!$scope.goodUser){
+          $scope.badUser = true;
+          console.log("badUser: " + $scope.badUser);
+          $scope.loginuser.password = "";
+          return;
+        } else 
+          $location.path("/");
+          // return;
+   }
    // });
 		// }
     // console.log("length ->  " + $scope.homeQuestions);

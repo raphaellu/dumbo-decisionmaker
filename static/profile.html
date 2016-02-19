@@ -47,8 +47,11 @@
 		<a href="#/profile" class="btn btn-default" role="button" ng-click="updateData()">Update</a>
 
 		<div ng-if="profileUpdated">
-		<span style="color: #ff0000"> Your profile has been updated. </span>
+			<span style="color: #ff0000"> Your profile has been updated. </span>
 		</div>
-
+		<div ng-if="!pwdMatch">
+			<span style="color: #ff0000"> Password fields do not match. </span>
+		</div>
+		
 	</div>
 </div>

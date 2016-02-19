@@ -2,27 +2,25 @@ angular.module('profileController', ['ngRoute', 'ngAnimate'])
 
 .controller('profileCtrl', ['$scope', '$location', '$http', '$routeParams', 
 	function($scope, $location, $http, $routeParams) {
-		
 
-		console.log("login in profile page : " + JSON.stringify($scope.loginuser))
-		$scope.updatedInfo = {
-			// "name" : $scope.loginuser.name,
-			// "email" : $scope.loginuser.email,
-			"name" : $scope.user[0].name,
-			"email" : $scope.user[0].email,
-			"password" : ""
-		}; 
+		$scope.updatedInfo = jQuery.extend(true, {}, $scope.user[0])
+		$scope.pwdMatch = true;
+		$scope.profileUpdated = false;
 
-		console.log('Current route name: ' + $location.path());
 		$scope.updateData = function() {
-			$scope.loginuser.name = $scope.updatedInfo.name;
-			$scope.loginuser.email = $scope.updatedInfo.email;
-			$scope.loginuser.password = $scope.updatedInfo.password;
-			// $scope.user[0].image = "./img/profile2.jpg";
-			$scope.profileUpdated = true;
+
+			if($scope.updatedInfo.password === $scope.updatedInfo.confirmPassword) {
+				$scope.user[0].name = $scope.updatedInfo.name;
+				$scope.user[0].email = $scope.updatedInfo.email;
+				$scope.user[0].password = $scope.updatedInfo.password;
+				// $scope.user[0].image = "./img/profile2.jpg";
+				$scope.profileUpdated = true;
+				$scope.pwdMatch = true;
+			} else {
+				$scope.pwdMatch = false;
+				$scope.profileUpdated = false;
+			}
 		};
-
-
   }])
   
 	// $scope.userId = $routeParams.userId;

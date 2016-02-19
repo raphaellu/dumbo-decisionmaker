@@ -57,19 +57,18 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	 	"image" : "./img/profile4.jpg",
 	 	"email" : "superuser@ucsd.edu",
 	 	"password": "superuser"
-	 },
-	 {
-	 	"name"	: "Chirag Poolajaranadirsamad",
-	 	"image" : "./img/profile4.jpg",
-	 	"email" : "chirag@gmail.com",
-	 	"password": "petrifiedJS"
 	 }]
 
 
-	 $scope.loginuser = {
-	 	"email" : "",
-	 	"password" : ""
-	 }
+	 // $scope.loginuser = {
+	 // 	"name" : "test",
+	 // 	"email" : "test",
+	 // 	"password" : "test",
+	 // 	"confirmPassword" : "test"
+	 // }
+
+
+	 $scope.updatedInfo = $scope.loginuser
 
 	 /*$scope.encryptPW = function(){
 	 	var pw = "";
@@ -93,30 +92,8 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	 	console.log("$scope.ifLoggedIn: " + $scope.ifLoggedIn );
 	 }
 
-	 $scope.logIn = function() {
-	 	$scope.ifLoggedIn = true;
-	 	console.log("$scope.ifLoggedIn: " + $scope.ifLoggedIn );
-	 	// check to see that there's an email/password that match against array
-	 	var loginUserIdx = 0
-	 	for(var i = 0; i < $scope.user.length; i++) {
-	    	if ($scope.user[i].email == $scope.loginuser.email && $scope.user[i].password == $scope.loginuser.password) {
-	    		$scope.goodUser = true;
-	    		loginUserIdx = i
-	    	}
-	    	console.log("goodUser: " + $scope.goodUser);
-	    }
-	    	if(!$scope.goodUser){
-	    		$scope.badUser = true;
-	    		console.log("badUser: " + $scope.badUser);
-	    		$scope.loginuser.password = "";
-	    		return;
-	    	} else { 
-	    		$scope.loginuser = $scope.user[loginUserIdx]
-	    		console.log("login>>>:" + JSON.stringify($scope.loginuser))
-	    		$location.path("/");
-	    	}
-	     
-	 }
+
+	
 
 	 $scope.kickUnlogged = function() {
 	 	if (!$scope.ifLoggedIn) {

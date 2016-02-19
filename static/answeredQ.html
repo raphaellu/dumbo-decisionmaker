@@ -1,0 +1,14 @@
+<div id="singleQuestionContainer" class="container" ng-controller="singleQCtrl">
+	<div><img class="col-xs-2 img-circle" style="min-width:100px" ng-src="{{question.userImage}}">
+	</div>
+	<span><strong><h2>{{question.question}}</h2></strong></span>
+
+	<br><br>
+
+	<div ng-repeat="option in question.options">
+		<strong><h4>{{option.option}}</h4></strong>
+		<div class="progress">
+    		<div class="progress-bar" aria-valuenow="{{option.vote}}" style="width:{{option.vote}}">{{option.vote}}</div>
+  		</div>
+	</div>
+</div>

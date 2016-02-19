@@ -1,20 +1,44 @@
 
 <div id="singleQuestionContainer" class="container" ng-controller="singleQCtrl">
-	<div><img class="col-xs-2 img-circle" style="min-width:100px" ng-src="{{question.userImage}}">
+	<div><img class="col-xs-2 img-circle" style="min-width:100px; max-width:120px" ng-src="{{question.userImage}}">
 	</div>
 	<span><strong><h2>{{question.question}}</h2></strong></span>
 
 	<br><br>
 
-	<div ng-repeat="option in question.options">
-		<strong><h4>{{option.option}}</h4></strong>
-		<div class="progress">
-    		<div class="progress-bar" aria-valuenow="{{option.vote}}" style="width:{{option.vote}}">{{option.vote}}</div>
-  		</div>
+	
+<!-- if not voted yet -->
+	<div ng-if="(question.status == 'unanswered') && (question.user != 'raph') ">
+		
+ 		<form ng-cloak>
+    		<md-radio-group ng-model="voteOption" >
+    			<div ng-repeat="option in question.options track by $index"> 
+    				<md-radio-button value="{{option.option}}" class="md-primary"><h4>{{option.option}}</h4></md-radio-button>
+    			</div>
+    		</md-radio-group>
+			<div style="text-align: center">
+    			<input type="submit" class="btn btn-info" style="min-width:100px" value="Vote" ng-click="submitVote(voteOption)">
+			</div>
+		</form>
+		<!-- <div ng-repeat="option in question.options">
+			<strong><h4>{{option.option}}</h4></strong>
+			<div class="progress">
+    			<div class="progress-bar" aria-valuenow="{{option.vote}}" style="width:{{option.vote}}">{{option.vote}}</div>
+  			</div>
+		</div> -->
+
 	</div>
 
-	<!-- <div ng-if="question.status == 'unanswered'">
-		<div ng-if="question.user != 'raph'">
+<!-- if the user has voted -->
+	<div ng-if="(question.status != 'unanswered') || (question.user == 'raph')" ng-init="updateVotePercentage()">
+		<div ng-repeat="option in question.options track by $index">
+			<strong><h4>{{option.option}}</h4></strong>
+			<div class="progress">
+    			 <div class="progress-bar" aria-valuenow="{{option.vote}}" style="width:{{option.vote}}">{{option.vote}}</div>
+  			</div>
+		</div>
+	</div>
+		<!-- <div ng-if="question.user != 'raph'">
 			<form ng-submit="submitted()" ng-cloak>
 				<div ng-repeat="option in question.options">
 	

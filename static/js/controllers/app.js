@@ -30,33 +30,42 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
       	 $scope.allQuestions = res.data;  
      });
      
-     $http.get('../json/users.json').then(function(res){
-      	 $scope.allUsers = res.data;  
-     });    
+     // $http.get('../json/users.json').then(function(res){
+     //  	 $scope.user = res.data;  
+     // });    
      
-
 
 	 $scope.determinePageTitle = function(){
 	 	var path = $location.path()
 	 	if(path == "/")
-	 		return "My Questions";
-	 	else if(path == "/answer")
 	 		return "All Questions";
+	 	else if(path == "/home")
+	 		return "My Questions";
 	 	else if(path == "/ask") 
 	 		return "Ask a Question";
 	 	else if(path == "/help")
 	 		return "Help"
 	 	else if(path == "/profile")
 	 		return "My Profile"
+	 	// else if(String(path).includes("/questions/"))
+	 		// return ""
 	 } 
 	 
 
 	 $scope.user = [{
+	 	"name"	: "Super User",
+	 	"image" : "./img/profile4.jpg",
+	 	"email" : "superuser@ucsd.edu",
+	 	"password": "superuser"
+	 },
+	 {
 	 	"name"	: "Chirag Poolajaranadirsamad",
 	 	"image" : "./img/profile4.jpg",
 	 	"email" : "chirag@gmail.com",
 	 	"password": "petrifiedJS"
 	 }]
+
+
 	 $scope.loginuser = {
 	 	"email" : "",
 	 	"password" : ""
@@ -129,11 +138,11 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 .config(function($routeProvider, $locationProvider){
 	$routeProvider
 	.when('/', {
-		templateUrl: 'home.html'
+		templateUrl: 'answer.html'
 		// controller: 'decisionmakerCtrl'
 	})
-	.when('/answer', {
-		templateUrl: 'answer.html'
+	.when('/home', {
+		templateUrl: 'home.html'
 		// controller: 'decisionmakerCtrl'
 	})
 	.when('/ask', {

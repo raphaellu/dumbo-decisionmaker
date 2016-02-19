@@ -6,10 +6,10 @@
 			"question": "What are the best programming languages to learn today?",
 			"status": "unanswered",
 			"options": [ 
-			 			{ "option": "Ruby", "vote":"20%" },
-			 			{ "option": "Python", "vote": "30%" },
-			 			{ "option": "C", "vote": "50%" },
-			 			{ "option": "Ocaml", "vote": "0%" }
+			 			{ "option": "Ruby", "vote":2 },
+			 			{ "option": "Python", "vote": 3 },
+			 			{ "option": "C", "vote": 5 },
+			 			{ "option": "Ocaml", "vote": 1 }
 			 		   ],
 			"user": "bob" 
 		},
@@ -20,8 +20,8 @@
 			"question": "Should I travel to Singapore or Iceland during the summer?",
 			"status": "unanswered",
 			"options" : [ 
-						  {"option": "Singapore", "vote": "70%"},
-						  {"option": "Iceland", "vote" : "30%"}
+						  {"option": "Singapore", "vote": 7},
+						  {"option": "Iceland", "vote" : 3}
 						],
 			"user": "roy"
 		},
@@ -32,8 +32,8 @@
 			"question": "Should I go to UC San Diego or UC Davis to study Computer Science?",
 			"status": "answered",
 			"options" : [
-						 {"option": "UC San Diego", "vote": "100%"},
-						 {"option": "UC Davis", "vote": "0%"}
+						 {"option": "UC San Diego", "vote": 870},
+						 {"option": "UC Davis", "vote": 1}
 						],
 			"user": "simon"
 		},
@@ -44,8 +44,8 @@
 			"question": "Should I eat at In-N-Out or Wendy's?",
 			"status": "closed",
 			"options" : [
-			 			 { "option": "In-N-Out", "vote" : "60%" },
-			 			 { "option": "Wendy's", "vote": "40%"}
+			 			 { "option": "In-N-Out", "vote" : 123 },
+			 			 { "option": "Wendy's", "vote": 32}
 			 			],
 			"user": "jely"
 		},
@@ -55,8 +55,8 @@
 			"question": "Simpson's or South Park?",
 			"status": "unanswered",
 			"options" : [
-						 {"option":	"Simpson's", "vote": "62%" },
-						 {"option": "South Park", "vote": "38%" }
+						 {"option":	"Simpson's", "vote": 123 },
+						 {"option": "South Park", "vote": 38 }
 						],
 			"user": "raph"
 		},
@@ -66,8 +66,8 @@
 			"question": "Should I take CSE 127 or CSE 131 next quarter?",
 			"status": "answered",
 			"options" : [
-						 { "option": "CSE 127", "vote" : "52%" },
-						 { "option": "CSE 131", "vote" : "48%" }
+						 { "option": "CSE 127", "vote" : 62 },
+						 { "option": "CSE 131", "vote" : 45 }
 						],
 			"user": "raph"
 		}

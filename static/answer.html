@@ -1,6 +1,14 @@
 <div id="indexContent" ng-controller="answerCtrl">
 			
 	<div id="questionContainer" class="container well center-block">
+		<div>
+		<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> : Unanswered Questions
+		<br>
+		<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> : Answered Questions
+		<br>
+		<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> : Closed Questions
+		<br><br><br>
+		</div>
 		<div ng-repeat="object in answerQuestions track by $index">
 			<div id="question1" class="indexQuestion">
 				<img class="col-xs-2 img-circle" ng-src="{{object.userImage}}">

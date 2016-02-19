@@ -18,9 +18,9 @@ angular.module('answerController', ['ngRoute', 'ngAnimate','singleQController'])
     // });
 
 	// if submitted, change status, 
-    if($scope.qSubmit){
+    // if($scope.qSubmit){
 
-    }
+    // }
 
 	
 	

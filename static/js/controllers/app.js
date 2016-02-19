@@ -1,5 +1,5 @@
 
-angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askController', 'answerController', 'singleQController','ngMaterial'])
+angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askController', 'answerController', 'singleQController', 'profileController', 'ngMaterial'])
 // .run(['$route', '$rootScope', '$location', function ($route, $rootScope, $location) {
 //     var original = $location.path;
 //     $location.path = function (path, reload) {
@@ -28,6 +28,10 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	 
 	 $http.get('../json/allQuestions.json').then(function(res){
       	 $scope.allQuestions = res.data;  
+     });
+     
+     $http.get('../json/users.json').then(function(res){
+      	 $scope.allUsers = res.data;  
      });    
      
 
@@ -47,21 +51,26 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	 		// return ""
 	 } 
 
-	 $scope.profile = {
+	 $scope.user = [{
 	 	"name"	: "Chirag Poolajaranadirsamad",
 	 	"image" : "./img/profile4.jpg",
 	 	"email" : "chirag@gmail.com",
 	 	"password": "petrifiedJS"
-	 	}
+	 }]
+	 $scope.loginuser = {
+	 	"email" : "",
+	 	"password" : ""
+	 }
 
-	 $scope.encryptPW = function(){
+	 /*$scope.encryptPW = function(){
 	 	var pw = "";
 	 	for(i in $scope.profile.password)
 	 		pw += "*";
 	 	return pw;
-	 }
+	 }*/
 
-	 	
+	 $scope.badUser = false;
+	 $scope.goodUser = false;	
 
 	 $scope.hideNavFooter = function(){
 	 	if ($location.path() == "/login" || $location.path() == "/signup")
@@ -78,6 +87,23 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	 $scope.logIn = function() {
 	 	$scope.ifLoggedIn = true;
 	 	console.log("$scope.ifLoggedIn: " + $scope.ifLoggedIn );
+	 	// check to see that there's an email/password that match against array
+	 	
+	 	for(var i = 0; i < $scope.user.length; i++) {
+	    	if ($scope.user[i].email == $scope.loginuser.email && $scope.user[i].password == $scope.loginuser.password) {
+	    		$scope.goodUser = true;
+	    	}
+	    	console.log("goodUser: " + $scope.goodUser);
+
+	    	if(!$scope.goodUser){
+	    		$scope.badUser = true;
+	    		console.log("badUser: " + $scope.badUser);
+	    		$scope.loginuser.password = "";
+	    		return;
+	    	}
+	    	$location.path("/");
+
+	     }
 	 }
 
 	 $scope.kickUnlogged = function() {

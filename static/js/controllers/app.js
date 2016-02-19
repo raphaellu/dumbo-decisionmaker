@@ -31,19 +31,20 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
      });    
      
 
-
 	 $scope.determinePageTitle = function(){
 	 	var path = $location.path()
 	 	if(path == "/")
-	 		return "My Questions";
-	 	else if(path == "/answer")
 	 		return "All Questions";
+	 	else if(path == "/home")
+	 		return "My Questions";
 	 	else if(path == "/ask") 
 	 		return "Ask a Question";
 	 	else if(path == "/help")
 	 		return "Help"
 	 	else if(path == "/profile")
 	 		return "My Profile"
+	 	// else if(String(path).includes("/questions/"))
+	 		// return ""
 	 } 
 
 	 $scope.profile = {
@@ -102,11 +103,11 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 .config(function($routeProvider, $locationProvider){
 	$routeProvider
 	.when('/', {
-		templateUrl: 'home.html'
+		templateUrl: 'answer.html'
 		// controller: 'decisionmakerCtrl'
 	})
-	.when('/answer', {
-		templateUrl: 'answer.html'
+	.when('/home', {
+		templateUrl: 'home.html'
 		// controller: 'decisionmakerCtrl'
 	})
 	.when('/ask', {

@@ -1,9 +1,9 @@
-angular.module('askController', ['ngRoute', 'ngAnimate', 'ngMaterial'])
+angular.module('askController', ['ngRoute', 'ngAnimate', 'ngMaterial', 'ngMessages'])
 
 .controller('askCtrl', ['$scope','$location','$http', function($scope, $location, $http) {
 		
 	 $scope.newObj = {
-	 	'question': "I need a companion! Should I get a cat or a dog to keep me company?",
+	 	'question': "",
 	 	// 'isPoll': true,
 	 	'options': ["cat","dog"]
 	 }
@@ -29,6 +29,10 @@ angular.module('askController', ['ngRoute', 'ngAnimate', 'ngMaterial'])
 	 	}
 	 	console.log(JSON.stringify($scope.newJsonToBeSent));
 	 	$scope.allQuestions.unshift($scope.newJsonToBeSent);
+
+	 	$scope.newObj.question = "";
+	 	$scope.newObj.options = [];
+	 	$location.path("/");
 	
 	 }
 

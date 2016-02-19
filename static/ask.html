@@ -1,37 +1,59 @@
 <div id="questionForm" ng-controller="askCtrl" class="container" style="padding-top: 80px" >
-
-	
-
-	<div class="container"id="askQuestionContainer">
-		<div id="questionTypeFormContainer">
-			<md-input-container style="width: 100%">
-				<label>What are you trying to decide?</label>
-				<textarea md-maxlength="100" ng-maxlength="100" max-length="100" ng-model="newObj.question" style="width: 100%"required></textarea> 
-			</md-input-container>
-		</div>
-		<div class="optionsContainer" >
-			<div id="optionsHeader">	<!-- Maybe have some hiding feature after options selected-->
-				<h5>Do you have options to choose from?</h5>
+	<form name="askQuestionForm">
+		<div class="container"id="askQuestionContainer">
+			<div id="questionTypeFormContainer">
+				<md-input-container style="width: 100%">
+					<label>What are you trying to decide?</label>
+					<textarea name="question" maxlength="300" md-maxlength="300" ng-maxlength="300" ng-model="newObj.question" style="width: 100%" required minlength="5" ng-minlength="5"></textarea> 
+					<div ng-messages="askQuestionForm.question.$error" ng-if="askQuestionForm.question.$dirty">
+						<!-- <div ng-message="required" ng-show="question.$touched || question.$dirty">
+							You forgot to write your question!
+						</div>
+						<div ng-message="minlength" ng-show="question.$touched || question.$dirty">
+							Your question seems too short...
+						</div>
+						<div ng-message="maxlength" ng-show="question.$touched || question.$dirty">
+							You might want to cut down. Most friends don't like reading essays!
+						</div> -->
+						<div ng-message="required">
+							You forgot to write your question!
+						</div>
+						<div ng-message="minlength">
+							Your question seems too short...
+						</div>
+						<div ng-message="maxlength">
+							You might want to cut down. Most friends don't like reading essays!
+						</div>
+					</div>
+				</md-input-container>
 			</div>
-			
-			
-			<div >
-				<md-chips
-        ng-model="newObj.options"
-        placeholder="Enter options here"
-        delete-button-label="Remove option"
-        delete-hint="Press delete to remove option"
-        secondary-placeholder="+Option"></md-chips>
+			<div class="optionsContainer" >
+				<div id="optionsHeader">	<!-- Maybe have some hiding feature after options selected-->
+					<h5>Do you have options to choose from?</h5>
+				</div>
+				
+				
+				<div >
+					<md-chips 
+	        ng-model="newObj.options"
+	        placeholder="Enter options here"
+	        delete-button-label="Remove option"
+	        delete-hint="Press delete to remove option"
+	        secondary-placeholder="+Option"></md-chips>
+	        		<div>
+				</div>
+
+			</div>		
+			<br>
+			<br>
+			<br>
+
+			<div id="submitButtonContainer">
+				<a class="btn btn-default col-xs-4" role="button" href="#/">Cancel<a/>
+				<input class="btn btn-info col-xs-4" role="button" style="float:right" ng-click="submit()" ng-disabled="(Object.keys(askQuestionForm.question.$error).length >0) || (newObj.options.length<2)" value="submit"><a/>	
+				{{newObj.options.length}} {{askQuestionForm.question.$error }}
+
 			</div>
-
-		</div>		
-		<br>
-		<br>
-		<br>
-
-		<div id="submitButtonContainer">
-			<a class="btn btn-default col-xs-4" role="button" href="#/">Cancel<a/>
-			<a class="btn btn-info col-xs-4" role="button" href="#/" style="float:right" ng-click="submit()">Submit<a/>	
 		</div>
-	</div>
+	</form>
 </div>

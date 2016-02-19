@@ -14,11 +14,22 @@
 		</div>
 
 		<div id="questionTypeFormContainer">
-			<textarea cols="30" maxlength="100"></textarea>
+			<textarea cols="30" md-maxlength="300" ng-maxlength="300" maxlength="300" name="question" minlength="5" required></textarea>
+			<div ng-messages="question.$error">
+				<div ng-message="required">
+					You forgot to write your question!
+				</div>
+				<div ng-message="minlength">
+					Your question seems too short. Make it more descriptive to help your friends help you!
+				</div>
+				<div ng-message="maxlength">
+					You might want to cut down. Most friends don't like reading essays!
+				</div>
+			</div>
 		</div>
 
 		<div id="optionsHeader">	<!-- Maybe have some hiding feature after options selected-->
-			<h5>Do you have options to choose from?</h5>
+			<h5>What are the options you are deciding between?</h5>
 		</div>
 		
 		<div id="optionsButtonContainer">

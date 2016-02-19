@@ -2,23 +2,53 @@
 		<div class="loginContainer">
 		<div class="container">
   			<h2>Sign Up</h2>
-  			<form role="form">
-   				<div class="form-group">
-              <label for="name">Name:</label>
-              <input type="email" class="form-control" id="name" placeholder="Enter name">
-          </div>
-          <div class="form-group">
-   			    	<label for="email">Email:</label>
-      				<input type="email" class="form-control" id="email" placeholder="Enter email">
-    			</div>
-    			<div class="form-group">
-     		 		<label for="pwd">Password:</label>
-      				<input type="password" class="form-control" id="pwd" placeholder="Enter password">
-    			</div>
-          <div class="form-group">
-            <label for="rptpwd">Repeat Password:</label>
-              <input type="password" class="form-control" id="rptpwd" placeholder="Enter repeated password">
-          </div>
+  			<form role="form" name="signupForm">
+          <md-input-container>
+     				<div class="form-group">
+                <label>Name</label>
+                <input name="name" type="text" ng-maxlength="70" class="form-control" id="name" required>
+                <div ng-messages="signupForm.name.$error" ng-if="signupForm.name.$dirty">
+                  <div ng-message="required">Name is required.</div>
+                  <div ng-message=""></div>
+
+                </div>
+
+            </div>
+          </md-input-container>
+          <md-input-container>
+            <div class="form-group">
+     			    	<label for="email">Email:</label>
+        				<input type="email" class="form-control" id="email" ng-minlength="3" name="email" ng-maxlength="254" maxlength="254" >
+                <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$dirty">
+                  <div ng-message="required">
+                    Email is required.
+                  </div>
+                  <div ng-message="maxlength">
+                    Your desired login email is too long.
+                  </div>
+                  <div ng=message="minlength">
+                    Your desired login email is too short.
+                  </div>
+                </div>
+      			</div>
+          <md-input-container> 
+          <md-input-container>
+      			<div class="form-group">
+       		 		<label>Password</label>
+        				<input name="password" type="password" class="form-control" id="pwd" required ng-minlength="6" ng-maxlength="10">
+                <div ng-messages="signupForm.password.$error" ng-if="signupForm.password.$dirty">
+                  <div ng-message="required">Password is required.</div>
+                  <div ng-message="maxlength">Password should be 6-10 characters long.</div>
+                  <div ng-message="maxlength">Password should be 6-10 characters long.</div>
+                </div>
+      			</div>
+          </md-input-container>
+          <md-input-container>
+            <div class="form-group">
+              <label>Confirm Password</label>
+                <input name="repeat" type="password" class="form-control" id="rptpwd">
+            </div>
+          </md-input-container>
     			<a href="#/login" class="btn btn-default" role="button">Log In</a>
     			<a href="#/" class="btn btn-info" role="button" ng-click="logIn()">Sign Up</a>
   			</form>

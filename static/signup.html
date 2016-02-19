@@ -5,57 +5,54 @@
   			<form role="form" name="signupForm">
           
      				<div class="form-group">
-                <label>Name</label>
-                <input name="name" type="text" ng-maxlength="70" class="form-control" id="name" required ng-model="newUser.name">
+                <label>Name:</label>
+                <input name="name" ng-maxlength="70" class="form-control" id="name" required ng-model="newUser.name">
                 <div ng-messages="signupForm.name.$error" ng-if="signupForm.name.$dirty">
-                  <div ng-message="required">Name is required.</div>
-                  <div ng-message=""></div>
-
+                  <div ng-message="required"><span style="color: #ff0000">Name is required.</span></div>
                 </div>
 
             </div>
           
             <div class="form-group">
      			    	<label for="email">Email:</label>
-        				<input type="email" class="form-control" id="email" ng-minlength="3" name="email" ng-maxlength="254" maxlength="254" ng-model="newUser.email">
+        				<input type="email" class="form-control" id="email" name="email" ng-maxlength="254" maxlength="254" ng-model="newUser.email">
                 <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$dirty">
                   <div ng-message="required">
-                    Email is required.
+                    <span>Email is required.</span>
                   </div>
                   <div ng-message="maxlength">
-                    Your desired login email is too long.
-                  </div>
-                  <div ng=message="minlength">
-                    Your desired login email is too short.
+                    <span>Your desired login email is too long.</span>
                   </div>
                 </div>
       			</div>
+            <div ng-if="emailExist">
+              <span style="color: #ff0000">Email is already registered.</span>
+            </div>
           
       			<div class="form-group">
-       		 		<label>Password</label>
+       		 		<label>Password:</label>
         				<input name="password" type="password" class="form-control" id="pwd" required ng-minlength="6" ng-maxlength="11" ng-model="newUser.password">
                 <div ng-messages="signupForm.password.$error" ng-if="signupForm.password.$dirty">
-                  <div ng-message="required">Password is required.</div>
-                  <div ng-message="maxlength">Password should be 6-10 characters long.</div>
-                  <div ng-message="maxlength">Password should be 6-10 characters long.</div>
+                  <div ng-message="required"><span>Password is required.</span></div>
+                  <div ng-message="maxlength"><span>Password should be 6-10 characters long.</span></div>
+                  <div ng-message="maxlength"><span style="color: #ff0000">Password should be 6-10 characters long.</span></div>
                 </div>
       			</div>
           
             <div class="form-group">
-              <label>Confirm Password</label>
+              <label>Confirm Password:</label>
                 <input name="repeat" type="password" class="form-control" id="rptpwd" ng-model="newUser.confirm">
             </div>
 
-            <div ng-if="repeat.$dirty && newUser.confirm !== newUser.password">
+            <div ng-if="passwordMismatch">
               <span style="color: #ff0000">Password fields do not match.</span>
             </div>
           <div class="col-xs-6">
-    			<a href="#/login" class="btn btn-default" style="max-width:80px" role="button">Log In</a>
+    			<a href="#/login" class="btn btn-default" style="max-width:80px" role="button">Login</a>
           </div>
           <div class="col-xs-6">
-    			<input class="btn btn-info" style="max-width:80px" role="button" ng-click="signup()" value="Sign Up"></input>
+    			<a class="btn btn-info" style="max-width:80px" role="button" ng-click="signup()">Sign Up</a>
           </div>
-
   			</form>
 		</div>
 		</div>

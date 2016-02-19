@@ -71,6 +71,44 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askC
 	 	"password" : ""
 	 }
 
+	 $scope.newUser = {
+	 	"name" : "",
+	 	"image" : "",
+	 	"email" : "",
+	 	"password" : "",
+	 	"confirm" : ""
+	 }
+
+	 $scope.emailExist = false;
+	 $scope.passwordMismatch = false;
+	 $scope.signup = function(){
+	 	$scope.emailExist = false;
+	 	$scope.passwordMismatch = false;
+	 	for(i=0; i< $scope.user.length; i++){
+	 		if($scope.user[i].email === $scope.newUser.email){
+	 			$scope.emailExist = true;
+	 		}
+	 	}
+	 	if($scope.newUser.password !== $scope.newUser.confirm) 
+	 		$scope.passwordMismatch = true;
+
+	 	if($scope.passwordMismatch || $scope.emailExist || $scope.newUser.name.length == 0 || $scope.newUser.email.length == 0  )
+	 		return;
+	 	//once here, all validated, ready to add to database
+ 		delete $scope.newUser.confirm;
+ 		$scope.newUser.image = "./img/profile4.jpg";
+ 		$scope.user.push(jQuery.extend(true, {}, $scope.newUser));
+ 		$scope.newUser = {
+		 	"name" : "",
+		 	"image" : "",
+		 	"email" : "",
+		 	"password" : "",
+		 	"confirm" : ""
+		 };
+		 console.log($scope.user);
+		$location.path("/"); 
+	 };
+
 	 /*$scope.encryptPW = function(){
 	 	var pw = "";
 	 	for(i in $scope.profile.password)

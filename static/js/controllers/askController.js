@@ -5,7 +5,7 @@ angular.module('askController', ['ngRoute', 'ngAnimate', 'ngMaterial', 'ngMessag
 	 $scope.newObj = {
 	 	'question': "",
 	 	// 'isPoll': true,
-	 	'options': ["cat","dog"]
+	 	'options': []
 	 }
 
 	
@@ -24,7 +24,7 @@ angular.module('askController', ['ngRoute', 'ngAnimate', 'ngMaterial', 'ngMessag
 	 	for(var i = 0 ; i < $scope.newObj.options.length; i++) {
 	 	$scope.newJsonToBeSent.options.push( {
 	 		"option": $scope.newObj.options[i],
-	 		"vote": "0%"
+	 		"vote": 0
 	 	  })
 	 	}
 	 	console.log(JSON.stringify($scope.newJsonToBeSent));
@@ -32,7 +32,7 @@ angular.module('askController', ['ngRoute', 'ngAnimate', 'ngMaterial', 'ngMessag
 
 	 	$scope.newObj.question = "";
 	 	$scope.newObj.options = [];
-	 	$location.path("/");
+	 	$location.path("/home");
 	
 	 }
 

@@ -18,20 +18,17 @@ angular.module('singleQController', ['ngRoute', 'ngAnimate'])
 	     }
 	   }
 
-
-	$scope.calVoteRate = function(options) {
-		console.log("===========")
-		console.log(JSON.stringify(options))
-	};
-
 	$scope.submitVote = function(voteOption){ 
 	  console.log("submitted vote : " + voteOption);
 	  console.log("----> before : " + JSON.stringify($scope.question))
 	  if(voteOption != "") {
 	    $scope.question.status = 'answered'
         for (var i = 0; i < $scope.allQuestions[questionId].options.length; i ++){
-        	if ($scope.allQuestions[questionId].options[i].option == voteOption)
-        		$scope.allQuestions[questionId].options[i].vote ++
+        	if ($scope.allQuestions[questionId].options[i].option == voteOption){
+        		$scope.allQuestions[questionId].options[i].vote ++;
+        		//update the question in the database
+        		$scope.saveQuestion($scope.allQuestions[questionId]);
+        	}
         }
 	  }
 	  // make a deep copy of updated question so that any change to $scope.question won't 

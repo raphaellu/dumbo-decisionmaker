@@ -1,39 +1,52 @@
 
-angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 'askController', 'answerController', 'singleQController', 'profileController', 'ngMaterial'])
-// .run(['$route', '$rootScope', '$location', function ($route, $rootScope, $location) {
-//     var original = $location.path;
-//     $location.path = function (path, reload) {
-//         if (reload === false) {
-//             var lastRoute = $route.current;
-//             var un = $rootScope.$on('$locationChangeSuccess', function () {
-//                 $route.current = lastRoute;
-//                 un();
-//             });
-//         }
-//         return original.apply($location, [path]);
-//     };
-// }])
-
-
+angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController', 
+	'askController', 'answerController', 'singleQController', 
+	'profileController', 'ngMaterial', 'firebase'])
 
 .controller('decisionmakerCtrl', ['$scope', '$route', '$routeParams',
-	'$location', '$http',function($scope, $route, $routeParams, $location, $http) {
+	'$location', '$http', '$firebaseObject', '$firebaseArray' , 
+	function($scope, $route, $routeParams, $location, $http, 
+		$firebaseObject, $firebaseArray) {
 		
-	 // console.log('Current route name: ' + $location.path());
+	
 	console.log("decisionmaker ctrl")
 
-	 $scope.ifLoggedIn = false;
-	 // $scope.homeQuestions=[];
-	 // $scope.answerQuestions = [];
+	/***************************************************************
+	 ******************** start of database ************************
+	 ***************************************************************/
+
+	// connect to database
+	var ref = new Firebase("https://fiery-inferno-3341.firebaseio.com");
+  	$scope.allQuestions = $firebaseArray(ref);
+
+  	// add new items to the array IN THE DATABASE
+    // the message is automatically added to our Firebase database.
+  	$scope.addQuestion = function(newQuestion) {
+      $scope.allQuestions.$add(newQuestion);
+    };
+
+    // save changes to an item to the array IN THE DATABASE
+    // scopeQuestion should be a scope variable that points to an item in
+    // $scope.allQuestions.
+    $scope.saveQuestion = function(scopeQuestion) {
+      $scope.allQuestions.$save(scopeQuestion);
+    }
+
+    // remove an item from the array IN THE DATABASE
+	// scopeQuestion should be a scope variable that points to an item in
+    // $scope.allQuestions.
+    $scope.removeQuestion = function(scopeQuestion){
+  	  $scope.allQuestions.$remove(scopeQuestion);
+    }
 	 
-	 $http.get('../json/allQuestions.json').then(function(res){
-      	 $scope.allQuestions = res.data;  
-     });
-     
-     // $http.get('../json/users.json').then(function(res){
-     //  	 $scope.user = res.data;  
-     // });    
-     
+	/***************************************************************
+	 ********************* end of database *************************
+	 ***************************************************************/
+
+
+	 $scope.ifLoggedIn = false;
+
+
 
 	 $scope.determinePageTitle = function(){
 	 	var path = $location.path()

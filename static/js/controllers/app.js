@@ -52,6 +52,8 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 	 	var path = $location.path()
 	 	if(path == "/")
 	 		return "All Questions";
+	 	else if (path == "/index_2")
+	 		return "All Questions";
 	 	else if(path == "/home")
 	 		return "My Questions";
 	 	else if(path == "/ask") 
@@ -171,6 +173,9 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 	.when('/', {
 		templateUrl: 'answer.html'
 		// controller: 'decisionmakerCtrl'
+	})
+	.when('/index_2',{
+		templateUrl: 'answer_2.html'
 	})
 	.when('/home', {
 		templateUrl: 'home.html'

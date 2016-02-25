@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html ng-app="decisionmaker" ng-controller="decisionmakerCtrl" >
+<html ng-app="decisionmaker" ng-controller="decisionmakerCtrl" ng-init="kickUnlogged()">
 <head>
 	<title>DecisionMaker™</title>	
 	<meta charset="utf-8">
@@ -45,7 +45,7 @@
 
 
 <body>
-	<div ng-view autoscroll="true" ng-init="kickUnlogged()"></div>
+	<div ng-view autoscroll="true"></div>
 </body>
 
 

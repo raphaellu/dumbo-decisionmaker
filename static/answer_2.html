@@ -1,0 +1,18 @@
+<div id="indexContent" ng-controller="answerCtrl">
+			
+	<div id="questionContainer" class="container well center-block">
+		
+		<div ng-repeat="object in answerQuestions track by $index">
+			<div id="question1" class="indexQuestion">
+				<img class="col-xs-2 img-circle" ng-src="{{object.userImage}}">
+				<h class="col-xs-8">
+					<span class="{{iconChanger(object.status)}}" aria-hidden="true"></span>  Q: {{object.question}}
+				</h>
+				<a class="{{buttonTypeChanger(object.status)}} col-xs-2" href="#/questions/{{object.id}}" role="button">{{buttonTextChanger(object.status)}}</a>
+			</div>
+						
+		<br>
+
+		</div>
+	</div>
+</div>

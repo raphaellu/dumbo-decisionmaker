@@ -7,6 +7,7 @@ angular.module('profileController', ['ngRoute', 'ngAnimate'])
 		$scope.updatedInfo = jQuery.extend(true, {}, $scope.loginuser)
 		$scope.pwdMatch = true;
 		$scope.profileUpdated = false;
+		$scope.passwordUpdated = false;
 		// console.log("profile -> " + JSON.stringify($scope.loginuser));
 		
 		$scope.updateData = function() {

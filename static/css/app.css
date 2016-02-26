@@ -28,7 +28,6 @@
 	top:50px;
 	
 	padding:20px;
-	
 	/*height:100%;*/
 	width:100%;
 	overflow-y: scroll;
@@ -177,6 +176,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  line-height: 1.2
 }
 .footer {
   position: fixed;

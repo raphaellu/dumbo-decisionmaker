@@ -6,7 +6,7 @@
           
      				<div class="form-group">
                 <label>Name:</label>
-                <input name="name" ng-maxlength="70" class="form-control" id="name" required ng-model="newUser.name">
+                <input name="name" ng-maxlength="70" class="form-control" id="name" required ng-model="newUser.name" placeholder="Enter Name">
                 <div ng-messages="signupForm.name.$error" ng-if="signupForm.name.$dirty">
                   <div ng-message="required"><span style="color: #ff0000">Name is required.</span></div>
                 </div>
@@ -15,7 +15,7 @@
           
             <div class="form-group">
      			    	<label for="email">Email:</label>
-        				<input type="email" class="form-control" id="email" name="email" ng-maxlength="254" maxlength="254" ng-model="newUser.email">
+        				<input type="email" class="form-control" id="email" name="email" ng-maxlength="254" maxlength="254" ng-model="newUser.email" placeholder="Enter Email">
                 <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$dirty">
                   <div ng-message="required">
                     <span>Email is required.</span>
@@ -31,7 +31,7 @@
           
       			<div class="form-group">
        		 		<label>Password:</label>
-        				<input name="password" type="password" class="form-control" id="pwd" required ng-minlength="6" ng-maxlength="11" ng-model="newUser.password">
+        				<input name="password" type="password" class="form-control" id="pwd" required ng-minlength="6" ng-maxlength="11" ng-model="newUser.password" placeholder="Enter Password">
                 <div ng-messages="signupForm.password.$error" ng-if="signupForm.password.$dirty">
                   <div ng-message="required"><span>Password is required.</span></div>
                   <div ng-message="maxlength"><span>Password should be 6-10 characters long.</span></div>
@@ -41,7 +41,7 @@
           
             <div class="form-group">
               <label>Confirm Password:</label>
-                <input name="repeat" type="password" class="form-control" id="rptpwd" ng-model="newUser.confirm">
+                <input name="repeat" type="password" class="form-control" id="rptpwd" ng-model="newUser.confirm" placeholder="Confirm Password">
             </div>
 
             <div ng-if="passwordMismatch">

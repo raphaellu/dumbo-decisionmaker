@@ -24,11 +24,11 @@ angular.module('askController', ['ngRoute', 'ngAnimate', 'ngMaterial', 'ngMessag
 	 	for(var i = 0 ; i < $scope.newObj.options.length; i++) {
 	 	$scope.newJsonToBeSent.options.push( {
 	 		"option": $scope.newObj.options[i],
-	 		"vote": "0%"
+	 		"vote": 0
 	 	  })
 	 	}
 	 	console.log(JSON.stringify($scope.newJsonToBeSent));
-	 	$scope.allQuestions.unshift($scope.newJsonToBeSent);
+	 	$scope.addQuestion($scope.newJsonToBeSent);
 
 	 	$scope.newObj.question = "";
 	 	$scope.newObj.options = [];

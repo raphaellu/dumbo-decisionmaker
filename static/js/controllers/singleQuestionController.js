@@ -43,13 +43,15 @@ angular.module('singleQController', ['ngRoute', 'ngAnimate'])
 	$scope.updateVotePercentage = function(){
 	  // data type check - if the vote is in percentage form, stop running this function
 	  if(String($scope.question.options[0].vote).includes("%")) return
-	  console.log("update called ")
 	  var sum = 0
 	  for (var i = 0; i < $scope.question.options.length; i++)
 	  	sum += $scope.question.options[i].vote
 	  
 	  for (var i = 0; i < $scope.question.options.length; i++)
-	  	$scope.question.options[i].vote = (Math.round(($scope.question.options[i].vote/sum)*100).toString()+"%")
+	  	if (sum == 0) 
+	  	  $scope.question.options[i].vote = "0%"
+	  	else
+	  	  $scope.question.options[i].vote = (Math.round(($scope.question.options[i].vote/sum)*100).toString()+"%")
 	  // console.log((Math.round(($scope.question.options[i].vote/sum)*100).toString()+"%"))
 	} 
 

@@ -1,0 +1,6 @@
+[{
+	 "name"	: "Super User",
+	 "image" : "./img/profile4.jpg",
+	 "email" : "superuser@ucsd.edu",
+	 "password": "superuser"
+}]

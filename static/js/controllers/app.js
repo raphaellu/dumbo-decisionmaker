@@ -8,37 +8,52 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 	function($scope, $route, $routeParams, $location, $http, 
 		$firebaseObject, $firebaseArray) {
 		
-	
-	console.log("decisionmaker ctrl")
+
+		console.log("decisionmaker ctrl")
 
 	/***************************************************************
 	 ******************** start of database ************************
 	 ***************************************************************/
 
-	// connect to database
+	// connect to questions table in DB
 	var ref = new Firebase("https://fiery-inferno-3341.firebaseio.com");
-  	$scope.allQuestions = $firebaseArray(ref);
+	$scope.allQuestions = $firebaseArray(ref);
 
   	// add new items to the array IN THE DATABASE
     // the message is automatically added to our Firebase database.
-  	$scope.addQuestion = function(newQuestion) {
-      $scope.allQuestions.$add(newQuestion);
+    $scope.addQuestion = function(newQuestion) {
+    	$scope.allQuestions.$add(newQuestion);
     };
 
     // save changes to an item to the array IN THE DATABASE
     // scopeQuestion should be a scope variable that points to an item in
     // $scope.allQuestions.
     $scope.saveQuestion = function(scopeQuestion) {
-      $scope.allQuestions.$save(scopeQuestion);
+    	$scope.allQuestions.$save(scopeQuestion);
     }
 
     // remove an item from the array IN THE DATABASE
 	// scopeQuestion should be a scope variable that points to an item in
     // $scope.allQuestions.
     $scope.removeQuestion = function(scopeQuestion){
-  	  $scope.allQuestions.$remove(scopeQuestion);
+    	$scope.allQuestions.$remove(scopeQuestion);
     }
-	 
+
+    // user accounts table in DB
+    var ref_usr = new Firebase("https://dumbo-user.firebaseio.com/");
+    $scope.user = $firebaseArray(ref_usr);
+
+	$scope.addUser = function(newUser) {
+    	$scope.user.$add(newUser);
+    };
+
+    $scope.saveUser = function(scopeUser) {
+    	$scope.user.$save(scopeUser);
+    }
+
+    $scope.removeUser = function(scopeUser){
+    	$scope.user.$remove(scopeUser);
+    }
 	/***************************************************************
 	 ********************* end of database *************************
 	 ***************************************************************/
@@ -64,15 +79,10 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 	 		return "My Profile"
 	 	// else if(String(path).includes("/questions/"))
 	 		// return ""
-	 } 
-	 
+	 	} 
 
-	 $scope.user = [{
-	 	"name"	: "Super User",
-	 	"image" : "./img/profile4.jpg",
-	 	"email" : "superuser@ucsd.edu",
-	 	"password": "superuser"
-	 }]
+
+	 	
 
 
 	 // $scope.loginuser = {
@@ -95,6 +105,8 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 
 	 $scope.emailExist = false;
 	 $scope.passwordMismatch = false;
+
+
 	 $scope.signup = function(){
 	 	$scope.emailExist = false;
 	 	$scope.passwordMismatch = false;
@@ -109,18 +121,20 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 	 	if($scope.passwordMismatch || $scope.emailExist || $scope.newUser.name.length == 0 || $scope.newUser.email.length == 0  )
 	 		return;
 	 	//once here, all validated, ready to add to database
- 		delete $scope.newUser.confirm;
- 		$scope.newUser.image = "./img/profile4.jpg";
- 		$scope.user.push(jQuery.extend(true, {}, $scope.newUser));
- 		$scope.newUser = {
-		 	"name" : "",
-		 	"image" : "",
-		 	"email" : "",
-		 	"password" : "",
-		 	"confirm" : ""
-		 };
-		 console.log($scope.user);
-		$location.path("/"); 
+	 	delete $scope.newUser.confirm;
+	 	$scope.newUser.image = "./img/profile4.jpg";
+	 	$scope.addUser($scope.newUser);
+	 	$scope.newUser = {
+	 		"name" : "",
+	 		"image" : "",
+	 		"email" : "",
+	 		"password" : "",
+	 		"confirm" : ""
+	 	};
+	 	console.log($scope.user);
+	 	$scope.passwordMismatch = false
+	 	$scope.emailExist = false
+	 	$location.path("/"); 
 	 };
 
 	 /*$scope.encryptPW = function(){
@@ -146,27 +160,27 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 	 }
 
 
-	
 
-	 $scope.kickUnlogged = function() {
-	 	if (!$scope.ifLoggedIn) {
-	 		$location.path( "/login" );
-	 	}
-	}
 
-	$scope.doTheBack = function() {
-		console.log("doback")
-  		window.history.back();
-	};
+      $scope.kickUnlogged = function() {
+      	if (!$scope.ifLoggedIn) {
+      		$location.path( "/login" );
+      	}
+      }
 
-	 $scope.isActive = function (viewLocation) { 
+      $scope.doTheBack = function() {
+      	console.log("doback")
+      	window.history.back();
+      };
+
+      $scope.isActive = function (viewLocation) { 
 	 	// console.log("===viewLocation: " + viewLocation + " location.path: " + $location.path());
-        return (viewLocation == $location.path());
-    };
+	 	return (viewLocation == $location.path());
+	 };
 
 	 // $scope.$on('$locationChangeStart', $scope.kickUnlogged());
 
-}])
+	}])
 
 .config(function($routeProvider, $locationProvider){
 	$routeProvider
@@ -198,16 +212,16 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 	// 	templateUrl: 'about.html',
 	// 	controller: 'decisionmakerCtrl'
 	// })
-	.when('/help', {
-		templateUrl: 'help.html'
+.when('/help', {
+	templateUrl: 'help.html'
 		// controller: 'decisionmakerCtrl'
 	})
-	.when('/profile', {
-		templateUrl: 'profile.html'
+.when('/profile', {
+	templateUrl: 'profile.html'
 		// controller: 'decisionmakerCtrl'
 	})
-	.when('/questions/:questionId', {
-		templateUrl: 'singleQuestion.html'
+.when('/questions/:questionId', {
+	templateUrl: 'singleQuestion.html'
 		// controller: 'decisionmakerCtrl'
 	})
 

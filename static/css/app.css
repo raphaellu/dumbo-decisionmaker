@@ -21,7 +21,19 @@
 	width:100%;
 	overflow-y: scroll;
 	position: fixed;
-	bottom:50px;
+	bottom:40px;
+}
+
+.askQuestionContainer {
+	top:50px;
+	
+	padding:20px;
+	
+	/*height:100%;*/
+	width:100%;
+	overflow-y: scroll;
+	position: fixed;
+	bottom:40px;
 }
 
 #indexContent {
@@ -39,7 +51,7 @@
 	width:100%;
 	overflow-y: scroll;
 	position: fixed;
-	bottom:50px;
+	bottom:40px;
 	/*background-color: #f8f8f8;*/
 }
 #questionContainer2 {
@@ -51,7 +63,7 @@
 	width:100%;
 	overflow-y: scroll;
 	position: fixed;
-	bottom:50px;
+	bottom:40px;
 	/*background-color: #f8f8f8;*/
 }
 

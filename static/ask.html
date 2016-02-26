@@ -1,4 +1,4 @@
-<div id="questionForm" ng-controller="askCtrl" class="container" style="padding-top: 80px" >
+<div id="questionForm" ng-controller="askCtrl" class="container askQuestionContainer" style="padding-top: 80px" >
 	<form name="askQuestionForm">
 		<div class="container"id="askQuestionContainer">
 			<div id="questionTypeFormContainer">
@@ -43,7 +43,8 @@
 				<a class="btn btn-default col-xs-4" role="button" href="#/">Cancel<a/>
 				<input class="btn btn-info col-xs-4" role="button" style="float:right" ng-click="submit()" ng-disabled="(Object.keys(askQuestionForm.question.$error).length >0) || (newObj.options.length<2)" value="submit"><a/>	
 			</div>
-
+			
 		</div>
 	</form>
+	<br><br><br><br>
 </div>

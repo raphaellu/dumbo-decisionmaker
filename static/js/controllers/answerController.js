@@ -36,6 +36,17 @@ angular.module('answerController', ['ngRoute', 'ngAnimate','singleQController'])
 		} 	
 	};
 
+	$scope.badgeChanger = function(status){
+		switch (status) {
+			case "unanswered":
+				return "color: white; background-color: #FF530D";
+			case "answered":
+				return "color: white; background-color: #38671D";
+			case "closed":
+				return "color: white; background-color: #69625E";
+		} 	
+	}
+
 	$scope.buttonTypeChanger = function(status){
 		switch (status) {
 			case "unanswered":
@@ -56,6 +67,11 @@ angular.module('answerController', ['ngRoute', 'ngAnimate','singleQController'])
 			case "closed":
 				return "View";
 		} 
+	}
+
+	$scope.goToQuestion = function(link){
+		console.log(link)
+		$location.path(link);
 	}
 
 //	 $locationProvider.html5Mode(true);

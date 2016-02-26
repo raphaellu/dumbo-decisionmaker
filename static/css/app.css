@@ -42,6 +42,18 @@
 	bottom:50px;
 	/*background-color: #f8f8f8;*/
 }
+#questionContainer2 {
+	/*padding-bottom:50px;*/
+	top:50px;
+	padding:0px;
+	background-color: #EAEAEA;
+	/*height:100%;*/
+	width:100%;
+	overflow-y: scroll;
+	position: fixed;
+	bottom:50px;
+	/*background-color: #f8f8f8;*/
+}
 
 .loginContainer {
 
@@ -68,6 +80,11 @@
 	padding-top: 0px;
 	padding-bottom: 70px;
 }
+.indexQuestion2 {
+	/*margin-top: 0px;*/
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
 
 .indexQuestion img{
 	/*margin: 30px;*/
@@ -75,6 +92,16 @@
 	padding-right:0;
 	padding-left:0;
 	max-width: 50px;
+	max-height: 90px;
+}
+
+.indexQuestion2 img{
+	/*margin: 30px;*/
+	/*margin-bottom: 50px;*/
+	padding-right:0;
+	padding-left:0;
+	max-width: 50px;
+	max-height: 90px;
 }
 
 .glyphicon-ok-sign {

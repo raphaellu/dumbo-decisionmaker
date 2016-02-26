@@ -18,13 +18,14 @@ angular.module('homeController', ['ngRoute', 'ngAnimate'])
 
 
        $scope.logIn = function(){
+        console.log("previous -> " + JSON.stringify($scope.loginuser));
         for(var i = 0; i < $scope.user.length; i++) {
           if ($scope.user[i].email == $scope.loginuser.email && $scope.user[i].password == $scope.loginuser.password) {
             $scope.goodUser = true;
-            $scope.loginuser.name = $scope.user[i].name;
+            $scope.loginuser.name= $scope.user[i].name;
             $scope.loginuser.email = $scope.user[i].email;
             $scope.loginuser.password = $scope.user[i].password;
-            console.log("found the user!" +JSON.stringify($scope.loginuser))
+            console.log("after -> " + JSON.stringify($scope.loginuser));
           }
         }
 

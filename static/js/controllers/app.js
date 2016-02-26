@@ -60,7 +60,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 
 
 	 $scope.ifLoggedIn = false;
-
+	
 
 
 	 $scope.determinePageTitle = function(){
@@ -85,15 +85,15 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 	 	
 
 
-	 // $scope.loginuser = {
-	 // 	"name" : "test",
-	 // 	"email" : "test",
-	 // 	"password" : "test",
-	 // 	"confirmPassword" : "test"
-	 // }
+	 $scope.loginuser = {
+	 	"name" : "test",
+	 	"email" : "test",
+	 	"password" : "test",
+	 	"confirmPassword" : ""
+	 }
 
 
-	 $scope.updatedInfo = $scope.loginuser
+	 // $scope.updatedInfo = $scope.loginuser
 
 	 $scope.newUser = {
 	 	"name" : "",

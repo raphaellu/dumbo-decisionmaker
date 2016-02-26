@@ -86,9 +86,9 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 
 
 	 $scope.loginuser = {
-	 	"name" : "test",
-	 	"email" : "test",
-	 	"password" : "test",
+	 	"name" : "",
+	 	"email" : "superuser@ucsd.edu",
+	 	"password" : "superuser",
 	 	"confirmPassword" : ""
 	 }
 

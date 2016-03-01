@@ -1,6 +1,11 @@
-p[]oiuq	<div id="indexContent" ng-controller="answerCtrl">
-			
-	<div id="questionContainer" class="container well center-block">
+<div id="indexContent" >
+ 
+<div ng-cloak="" class="tabsdemoDynamicHeight">
+ <md-content>
+    <md-tabs md-dynamic-height="" md-border-bottom="">
+      <md-tab label="one">
+        <md-content class="md-padding" ng-controller="answerCtrl">
+          <!-- <div id="questionContainer"> -->
 		
 		<div ng-repeat="object in answerQuestions track by $index">
 			<div id="question1" class="indexQuestion">
@@ -14,5 +19,24 @@ p[]oiuq	<div id="indexContent" ng-controller="answerCtrl">
 		<br>
 
 		</div>
-	</div>
+	<!-- </div> -->
+        </md-content>
+      </md-tab>
+      <md-tab label="two">
+        <md-content class="md-padding" ng-controller="homeCtrl">
+          <div ng-repeat="object in homeQuestions track by $index">
+			<div id="question1" class="indexQuestion">
+				<img class="col-xs-2 img-circle" ng-src="{{object.userImage}}">
+				<h class="col-xs-8">Q: {{object.question}}</h>
+				<a class="btn btn-default col-xs-2" href="#/questions/{{object.id}}" role="button">View</a>
+			</div>
+			<br>
+		</div>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+ </md-content>
+</div>
+<!-- 
+	 -->
 </div>

@@ -1,4 +1,4 @@
-angular.module('answerController', ['ngRoute', 'ngAnimate','singleQController'])
+angular.module('answerController', ['ngRoute', 'ngAnimate','singleQController', 'ngMaterial', 'ngMessages'])
 
 .controller('answerCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
 		

@@ -1,7 +1,8 @@
 angular.module('homeController', ['ngRoute', 'ngAnimate'])
 
 .controller('homeCtrl', ['$scope','$location','$http', function($scope, $location,$http) {
-	console.log("homeController");
+
+	console.log("homeController : " + $scope.justNewQuestion.value);
 
 	// read json file
 	// $scope.getHomeQuestionJson = function(){
@@ -18,14 +19,18 @@ angular.module('homeController', ['ngRoute', 'ngAnimate'])
 
 
        $scope.logIn = function(){
-        console.log("previous -> " + JSON.stringify($scope.loginuser));
+        if(!$scope.checkDataReady())
+          return;
+        // AB Testing counter
+        $scope.increaseSumCounter();
+
+        // actual logging logic
         for(var i = 0; i < $scope.user.length; i++) {
           if ($scope.user[i].email == $scope.loginuser.email && $scope.user[i].password == $scope.loginuser.password) {
             $scope.goodUser = true;
             $scope.loginuser.name= $scope.user[i].name;
             $scope.loginuser.email = $scope.user[i].email;
             $scope.loginuser.password = $scope.user[i].password;
-            console.log("after -> " + JSON.stringify($scope.loginuser));
           }
         }
 
@@ -35,8 +40,13 @@ angular.module('homeController', ['ngRoute', 'ngAnimate'])
          $scope.loginuser.password = "";
          return;
         } else 
-          $location.path("/");
+          $scope.goToAllQuestions();
       }
+
+        $scope.goToQuestion = function(link){
+          console.log(link)
+         $location.path(link);
+        }
    // });
 		// }
     // console.log("length ->  " + $scope.homeQuestions);

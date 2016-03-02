@@ -32,7 +32,12 @@ angular.module('askController', ['ngRoute', 'ngAnimate', 'ngMaterial', 'ngMessag
 
 	 	$scope.newObj.question = "";
 	 	$scope.newObj.options = [];
-	 	$location.path("/home");
+	 	$scope.justNewQuestion.value = true;
+	 	$scope.showStatus();
+	 	if ($scope.ABversion == "A")
+	 		$location.path("/home");
+	 	else
+	 		$location.path("/index_2");
 	
 	 }
 

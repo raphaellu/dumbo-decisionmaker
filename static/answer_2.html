@@ -1,6 +1,11 @@
-<div id="indexContent" ng-controller="answerCtrl">
-			
-	<div id="questionContainer2" class="container well center-block">
+<div id="indexContent" >
+<div ng-cloak="" class="tabsdemoDynamicHeight">
+ <md-content style="position: relative; bottom: 10px;">
+    <md-tabs md-dynamic-height="" md-border-bottom="">
+      <md-tab label="all questions" md-active="!justNewQuestion.value" ng-click="setDefaultTab()">
+        <md-content class="md-padding" ng-controller="answerCtrl">
+          <!-- <div id="questionContainer"> -->
+		
 		<md-list>
 			<md-list-item ng-repeat="object in answerQuestions track by $index" ng-click="goToQuestion('/questions/' + object.id)">
 				<br>
@@ -18,7 +23,30 @@
 			</md-list-item>
 			
 		</md-list>
-			
-		
-	</div>
+	<!-- </div> -->
+        </md-content>
+      </md-tab>
+      <md-tab label="my questions" md-active="justNewQuestion.value" ng-click="increaseClickCounter()">
+        <md-content class="md-padding" ng-controller="homeCtrl">
+          <md-list-item ng-repeat="object in homeQuestions track by $index" ng-click="goToQuestion('/questions/' + object.id)">
+				<br>
+				<!-- <a  href="#/questions/{{object.id}}" style="color:#000000"> -->
+				<div id="question1" class="indexQuestion2">
+					<img class="col-xs-2 img-circle" ng-src="{{object.userImage}}">
+					<h class="col-xs-10" style="line-height:1.5">
+						 Q: {{object.question}}
+					</h>
+					<!-- <a class="{{buttonTypeChanger(object.status)}} col-xs-2" href="#/questions/{{object.id}}" role="button">{{buttonTextChanger(object.status)}}</a>
+ -->
+				</div>
+				<!-- </a> -->
+				<md-divider></md-divider>
+			</md-list-item>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+ </md-content>
+</div>
+<!-- 
+	 -->
 </div>

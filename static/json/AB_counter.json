@@ -1,0 +1,17 @@
+ [
+ 	{
+ 		"method": "unique",
+ 		"A": 0,
+ 		"ASum": 0,
+ 		"B": 0,
+ 		"BSum": 0
+ 	},
+ 	{
+ 		"method": "repetitive",
+ 		"A": 0,
+ 		"ASum": 0,
+ 		"B": 0,
+ 		"BSum": 0
+ 	}
+
+ ]

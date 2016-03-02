@@ -9,8 +9,34 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 		$firebaseObject, $firebaseArray) {
 		
 
-		console.log("decisionmaker ctrl")
+		
+	//randomly render AB Testing version
+	$scope.ABversion = Math.random() < 0.5 ? "A" : "B";	
+	console.log("decisionmaker ctrl, version : " + $scope.ABversion)
 
+
+	$scope.goToAllQuestions = function () {
+		if ($scope.ABversion == "A")
+			$location.path("/"); 
+		else
+			$location.path("/index_2"); 
+	}
+
+	// if a user just submitted a new question, "my questions" tab would be activated
+	$scope.justNewQuestion = {
+		"value": false
+	}
+
+	$scope.setDefaultTab = function(){
+		console.log("set active tab back to all questions");
+		$scope.justNewQuestion.value = false;
+	}	
+
+	$scope.showStatus = function (){
+		console.log("========== $scope.justNewQuestion : " + JSON.stringify($scope.justNewQuestion) + " =============")
+	}
+
+	$scope.showStatus();
 	/***************************************************************
 	 ******************** start of database ************************
 	 ***************************************************************/
@@ -54,6 +80,44 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
     $scope.removeUser = function(scopeUser){
     	$scope.user.$remove(scopeUser);
     }
+
+    // for AB testing counter purpose
+    var ref_counter = new Firebase("https://dumbo-ab.firebaseio.com/");
+    $scope.ABcounter = $firebaseArray(ref_counter);
+    $scope.uniqueClicked = false;
+    $scope.increaseClickCounter = function(){
+    	console.log("increase Click Counter");
+    	console.log("    $scope.uniqueClicked = " + $scope.uniqueClicked)
+    	if(!$scope.uniqueClicked) {
+    		$scope.ABcounter[0][$scope.ABversion] = $scope.ABcounter[0][$scope.ABversion] + 1;
+    		console.log("$scope.ABcounter[0][$scope.ABversion] : " +$scope.ABcounter[0][$scope.ABversion] );
+    		$scope.ABcounter.$save($scope.ABcounter[0]);
+    		$scope.uniqueClicked = true;
+    	}
+    	console.log("    $scope.uniqueClicked = " + $scope.uniqueClicked);
+    	$scope.ABcounter[1][$scope.ABversion] = $scope.ABcounter[1][$scope.ABversion] + 1;
+    	$scope.ABcounter.$save($scope.ABcounter[1]);
+    }
+
+    $scope.uniqueSum = false;
+    $scope.increaseSumCounter = function(){
+    	console.log("increase Sum Counter");
+    	if(!$scope.uniqueSum){
+    		$scope.ABcounter[0][$scope.ABversion+"Sum"] = $scope.ABcounter[0][$scope.ABversion+"Sum"] + 1;
+    		$scope.ABcounter[1][$scope.ABversion+"Sum"] = $scope.ABcounter[1][$scope.ABversion+"Sum"] + 1;
+    		$scope.ABcounter.$save($scope.ABcounter[0]);
+    		$scope.ABcounter.$save($scope.ABcounter[1]);
+    		$scope.uniqueSum = true;
+    	}
+    }
+
+
+    $scope.checkDataReady = function() {
+    	console.log("check - data- ready");
+    	if(typeof $scope.user == "undefined" || typeof $scope.ABcounter == "undefined" || typeof $scope.allQuestions == "undefined")
+    		return false;
+    	return true;
+    }
 	/***************************************************************
 	 ********************* end of database *************************
 	 ***************************************************************/
@@ -68,7 +132,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 	 	if(path == "/")
 	 		return "All Questions";
 	 	else if (path == "/index_2")
-	 		return "All Questions";
+	 		return " Questions";
 	 	else if(path == "/home")
 	 		return "My Questions";
 	 	else if(path == "/ask") 
@@ -108,6 +172,12 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 
 
 	 $scope.signup = function(){
+	 	if(!$scope.checkDataReady())
+	 		return;
+		 // AB Testing counter
+        $scope.increaseSumCounter();
+	
+		// actual sign up logic
 	 	$scope.emailExist = false;
 	 	$scope.passwordMismatch = false;
 	 	for(i=0; i< $scope.user.length; i++){
@@ -134,7 +204,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 	 	console.log($scope.user);
 	 	$scope.passwordMismatch = false
 	 	$scope.emailExist = false
-	 	$location.path("/"); 
+	 	$scope.goToAllQuestions(); 
 	 };
 
 	 /*$scope.encryptPW = function(){
@@ -177,6 +247,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 	 	// console.log("===viewLocation: " + viewLocation + " location.path: " + $location.path());
 	 	return (viewLocation == $location.path());
 	 };
+
 
 	 // $scope.$on('$locationChangeStart', $scope.kickUnlogged());
 

@@ -81,6 +81,26 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
     	$scope.user.$remove(scopeUser);
     }
 
+    $scope.resetData = function(){
+    	$http.get('../json/allQuestions.json').then(function(res){
+      	  var originalData = res.data;  
+      	  // console.log(JSON.stringify(originalData));
+      	  for (var i = 0 ; i < originalData.length; i++){
+      	  	$scope.allQuestions[i].id = originalData[i].id;
+      	  	$scope.allQuestions[i].options = originalData[i].options;
+      	  	$scope.allQuestions[i].question = originalData[i].question;
+      	  	$scope.allQuestions[i].status = originalData[i].status;
+      	  	$scope.allQuestions[i].user = originalData[i].user;
+      	  	$scope.allQuestions[i].userImage = originalData[i].userImage;
+      	  	$scope.saveQuestion($scope.allQuestions[i]);
+      	  }
+
+      	  for (var i = originalData.length ; i < $scope.allQuestions.length; i++){
+      	  	$scope.removeQuestion($scope.allQuestions[i]);
+      	  }
+
+     	}); 
+    }
     // for AB testing counter purpose
     var ref_counter = new Firebase("https://dumbo-ab.firebaseio.com/");
     $scope.ABcounter = $firebaseArray(ref_counter);

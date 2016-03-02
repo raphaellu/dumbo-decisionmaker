@@ -6,7 +6,7 @@
         <md-content class="md-padding" ng-controller="answerCtrl">
           <!-- <div id="questionContainer"> -->
 		
-		<md-list>
+		<md-list style="padding-bottom:40px">
 			<md-list-item ng-repeat="object in answerQuestions track by $index" ng-click="goToQuestion('/questions/' + object.id)">
 				<br>
 				<!-- <a  href="#/questions/{{object.id}}" style="color:#000000"> -->
@@ -28,6 +28,7 @@
       </md-tab>
       <md-tab label="my questions" md-active="justNewQuestion.value" ng-click="increaseClickCounter()">
         <md-content class="md-padding" ng-controller="homeCtrl">
+        <md-list>
           <md-list-item ng-repeat="object in homeQuestions track by $index" ng-click="goToQuestion('/questions/' + object.id)">
 				<br>
 				<!-- <a  href="#/questions/{{object.id}}" style="color:#000000"> -->
@@ -42,6 +43,7 @@
 				<!-- </a> -->
 				<md-divider></md-divider>
 			</md-list-item>
+			</md-list>
         </md-content>
       </md-tab>
     </md-tabs>

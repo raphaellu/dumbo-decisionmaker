@@ -11,11 +11,13 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
 
 		
 	//randomly render AB Testing version
-	$scope.ABversion = Math.random() < 0.5 ? "A" : "B";	
+	// $scope.ABversion = Math.random() < 0.5 ? "A" : "B";	
+	$scope.ABversion = "B";
 	console.log("decisionmaker ctrl, version : " + $scope.ABversion)
 
 
 	$scope.goToAllQuestions = function () {
+		$scope.justNewQuestion.value = false
 		if ($scope.ABversion == "A")
 			$location.path("/"); 
 		else
@@ -108,6 +110,7 @@ angular.module('decisionmaker', ['ngRoute', 'ngAnimate', 'homeController',
     $scope.increaseClickCounter = function(){
     	console.log("increase Click Counter");
     	console.log("    $scope.uniqueClicked = " + $scope.uniqueClicked)
+    	$scope.justNewQuestion.value = true;
     	if(!$scope.uniqueClicked) {
     		$scope.ABcounter[0][$scope.ABversion] = $scope.ABcounter[0][$scope.ABversion] + 1;
     		console.log("$scope.ABcounter[0][$scope.ABversion] : " +$scope.ABcounter[0][$scope.ABversion] );

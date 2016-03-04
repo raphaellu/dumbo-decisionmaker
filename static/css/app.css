@@ -71,7 +71,7 @@
 	padding-top:30px;
 	height:100%;
 	width:100%;
-	/*overflow-y: scroll;*/
+	overflow-y: scroll;
 	position: fixed;
 	/*bottom:50px;*/
 	background-color:#09091a;
